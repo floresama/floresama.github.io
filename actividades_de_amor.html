@@ -1,121 +1,877 @@
 <!DOCTYPE html>
-<script src="script.js"></script>
 <html lang="en">
 <head>
-    <head>
-    
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Trabajo Practico Linux</title>
-        <link rel="stylesheet" href="/estilos/style.css">
-        <link rel="stylesheet" href="/estilos/actividades.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
-        <link rel="shortcut icon" href="./imagenes/linux.png" type="">
-    
-    </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>🌻 Juego de Amor - Para Mavi 🌻</title>
+    <link rel="stylesheet" href="/estilos/style.css">
+    <link rel="stylesheet" href="/estilos/actividades.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./imagenes/linux.png" type="">
 </head>
 <body class="fondo">
+
+    <!-- Partículas flotantes -->
+    <div class="floating-particles" id="particles"></div>
+
     <header class="encabezado"> 
         <nav class="main-navbar">
-            <img src="/imagenes/logoLP.png" alt="" class="logoPrincipal">
+            <img src="/imagenes/bellaka.jpeg" alt="" class="logoPrincipal">
             <ul class="menu">
                 <li><a class="nav-item" href="index.html"><strong>Inicio</strong></a></li>
-                <li><a class="nav-item" href="actividades de amor.html"><strong>Actividades de amor</strong></a></li>      
+                <li><a class="nav-item" href="actividades_de_amor.html"><strong>Juego de Amor</strong></a></li>      
                 <li><a class="nav-item" href="collage.html"><strong>Collage</strong></a></li>                  
             </ul>
         </nav>
     </header>
 
-    <div id="act" class="actividades">
-        <!-- Aquí comienza el test -->
-        <div id="test" class="test">
-            <h1>ACTIVIDADES</h1>
-            <div class="opciones">
-                <h3>Pregunta 1: ¿Cuál es el propósito principal de un sistema operativo?</h3><!-- Opciones -->
-                <div class="options">
-                    <input type="radio" name="q1" value="a"> A. Proporcionar un entorno para ejecutar programas<br>
-                    <input type="radio" name="q1" value="b"> B. Administrar el hardware<br>
-                    <input type="radio" name="q1" value="c"> C. Proteger la computadora de virus<br>
-                    <input type="radio" name="q1" value="d"> D. Proveer acceso a internet<br>
-                </div>
-            </div>
-            <div class="opciones"><!-- Opciones2 -->
-                <h3>Pregunta 2: ¿Cuál de los siguientes es un sistema operativo de código abierto?</h3>
-                <div class="options">
-                    <input type="radio" name="q2" value="a"> A. Windows<br>
-                    <input type="radio" name="q2" value="b"> B. macOS<br>
-                    <input type="radio" name="q2" value="c"> C. Linux<br>
-                    <input type="radio" name="q2" value="d"> D. DOS<br>
-                </div>
-            </div>
-            <div class="opciones"><!-- Opciones3 -->
-                <h3>Pregunta 3: ¿Cuál es una característica importante de Linux?</h3>
-                <div class="options">
-                    <input type="radio" name="q3" value="a"> A. Es de código cerrado<br>
-                    <input type="radio" name="q3" value="b"> B. No se puede personalizar<br>
-                    <input type="radio" name="q3" value="c"> C. Ofrece flexibilidad y personalización<br>
-                    <input type="radio" name="q3" value="d"> D. Solo es usado en servidores<br>
-                </div>
-            </div>
-            <div class="opciones"><!-- Opciones4 -->
-                <h3>Pregunta 4: ¿Cuál es una característica clave de Linux que lo convierte en una opción popular para servidores?</h3>
-                <div class="options">
-                    <input type="radio" name="q4" value="a"> A.  Es costoso de implementar.<br>
-                    <input type="radio" name="q4" value="b"> B.  Su inestabilidad en entornos críticos.<br>
-                    <input type="radio" name="q4" value="c"> C.Su seguridad y estabilidad.<br>
-                    <input type="radio" name="q4" value="d"> D.  Es compatible solo con hardware específico.<br>
-                </div>
-            </div>
-            <div class="opciones"><!-- Opciones5 -->
-                <h3>Pregunta 5: ¿Cuál es una de las principales ventajas de Linux?</h3>
-                <div class="options">
-                    <input type="radio" name="q5" value="a"> A. Es de código cerrado y no se puede modificar.<br>
-                    <input type="radio" name="q5" value="b"> B. Es de código abierto, lo que permite acceder, modificar y distribuir su código fuente.<br>
-                    <input type="radio" name="q5" value="c"> C. Solo es utilizado en dispositivos móviles.<br>
-                    <input type="radio" name="q5" value="d"> D. Es propiedad exclusiva de una empresa.<br>
-                </div>
-            </div>
-            <div class="opciones"><!-- Opciones6 -->
-                <h3>Pregunta 6: ¿Cuál es la distribución de Linux más usada en el mundo?</h3>
-                <div class="options">
-                    <input type="radio" name="q6" value="a"> A. Red Hat<br>
-                    <input type="radio" name="q6" value="b"> B. Fedora<br>
-                    <input type="radio" name="q6" value="c"> C. Ubuntu<br>
-                    <input type="radio" name="q6" value="d"> D.  Debian<br>
-                </div>
-            </div>
-            <div class="opciones"><!-- Opciones7 -->
-                <h3>Pregunta 7: ¿Cuál es una de las distribuciones más importantes para el entorno corporativo?</h3>
-                <div class="options">
-                    <input type="radio" name="q7" value="a"> A. Linux Mint<br>
-                    <input type="radio" name="q7" value="b"> B. Red Hat <br>
-                    <input type="radio" name="q7" value="c"> C. Debian <br>
-                    <input type="radio" name="q7" value="d"> D. Ubuntu<br>
-                </div>
-            </div>
-        
-
-            <button class="boton-enviar" onclick="TestCorrecto()">Enviar Respuestas</button>
-            <div id="resultado"></div> 
+    <!-- Panel de estado del juego -->
+    <div class="game-stats">
+        <div class="stat-item">
+            <span class="stat-label">💖 Vida:</span>
+            <span id="health" class="stat-value">100</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">⭐ Nivel:</span>
+            <span id="level" class="stat-value">1</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">💰 Oro:</span>
+            <span id="gold" class="stat-value">0</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">🎯 Etapa:</span>
+            <span id="stage" class="stat-value">1</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">⚔️ Poder:</span>
+            <span id="power" class="stat-value">10</span>
         </div>
     </div>
-    
+
+    <!-- Menú principal del juego -->
+    <div id="mainMenu" class="game-container">
+        <div class="game-title">
+            <h1>🌻 Juego de Amor - Aventura Romántica 🌻</h1>
+            <p class="game-subtitle">Ayuda a tu personaje a superar obstáculos y ganar oro para mejorarlo</p>
+        </div>
+
+        <!-- Selección de personaje -->
+        <div class="character-selection">
+            <h2>👸 Elige tu Personaje</h2>
+            <div class="character-options">
+                <div class="character-option" data-character="princess">
+                    <div class="character-avatar">👸</div>
+                    <h3>Princesa Mavi</h3>
+                    <p>Poder: 10 | Vida: 100</p>
+                </div>
+                <div class="character-option" data-character="warrior">
+                    <div class="character-avatar">⚔️</div>
+                    <h3>Guerrera del Amor</h3>
+                    <p>Poder: 15 | Vida: 80</p>
+                </div>
+                <div class="character-option" data-character="mage">
+                    <div class="character-avatar">🔮</div>
+                    <h3>Maga Romántica</h3>
+                    <p>Poder: 20 | Vida: 70</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botones del menú -->
+        <div class="game-buttons">
+            <button id="startGameBtn" class="game-btn primary">🚀 Iniciar Aventura</button>
+            <button id="shopBtn" class="game-btn secondary">🛒 Tienda de Mejoras</button>
+            <button id="statsBtn" class="game-btn secondary">📊 Estadísticas</button>
+        </div>
+    </div>
+
+    <!-- Área de juego -->
+    <div id="gameArea" class="game-area" style="display: none;">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        
+        <!-- Controles del juego -->
+        <div class="game-controls">
+            <div class="control-info">
+                <p>🎮 Controles: Flechas para mover, ESPACIO para saltar, X para atacar</p>
+            </div>
+            <div class="control-buttons">
+                <button id="pauseBtn" class="control-btn">⏸️ Pausar</button>
+                <button id="menuBtn" class="control-btn">🏠 Menú</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tienda de mejoras -->
+    <div id="shop" class="shop-container" style="display: none;">
+        <div class="shop-header">
+            <h2>🛒 Tienda de Mejoras</h2>
+            <p>Gasta tu oro para mejorar tu personaje</p>
+        </div>
+        
+        <div class="shop-items">
+            <div class="shop-item" data-item="health">
+                <div class="item-icon">💖</div>
+                <div class="item-info">
+                    <h3>Poción de Vida</h3>
+                    <p>+20 de vida máxima</p>
+                    <span class="item-price">50 💰</span>
+                </div>
+                <button class="buy-btn">Comprar</button>
+            </div>
+            
+            <div class="shop-item" data-item="power">
+                <div class="item-icon">⚔️</div>
+                <div class="item-info">
+                    <h3>Espada Mejorada</h3>
+                    <p>+5 de poder de ataque</p>
+                    <span class="item-price">100 💰</span>
+                </div>
+                <button class="buy-btn">Comprar</button>
+            </div>
+            
+            <div class="shop-item" data-item="speed">
+                <div class="item-icon">🏃</div>
+                <div class="item-info">
+                    <h3>Botas de Velocidad</h3>
+                    <p>+20% de velocidad de movimiento</p>
+                    <span class="item-price">75 💰</span>
+                </div>
+                <button class="buy-btn">Comprar</button>
+            </div>
+            
+            <div class="shop-item" data-item="jump">
+                <div class="item-icon">🦘</div>
+                <div class="item-info">
+                    <h3>Poción de Salto</h3>
+                    <p>+30% de altura de salto</p>
+                    <span class="item-price">60 💰</span>
+                </div>
+                <button class="buy-btn">Comprar</button>
+            </div>
+        </div>
+        
+        <button id="closeShopBtn" class="close-btn">❌ Cerrar Tienda</button>
+    </div>
+
+    <!-- Estadísticas -->
+    <div id="stats" class="stats-container" style="display: none;">
+        <div class="stats-header">
+            <h2>📊 Estadísticas del Juego</h2>
+        </div>
+        
+        <div class="stats-content">
+            <div class="stat-row">
+                <span class="stat-name">Enemigos Derrotados:</span>
+                <span id="enemiesDefeated" class="stat-value">0</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-name">Oro Total Ganado:</span>
+                <span id="totalGoldEarned" class="stat-value">0</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-name">Etapas Completadas:</span>
+                <span id="stagesCompleted" class="stat-value">0</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-name">Tiempo de Juego:</span>
+                <span id="playTime" class="stat-value">00:00</span>
+            </div>
+        </div>
+        
+        <button id="closeStatsBtn" class="close-btn">❌ Cerrar</button>
+    </div>
+
+    <!-- Pantalla de Game Over -->
+    <div id="gameOver" class="game-over" style="display: none;">
+        <div class="game-over-content">
+            <h2>💔 Game Over</h2>
+            <p>Tu personaje ha sido derrotado</p>
+            <div class="final-stats">
+                <p>Oro ganado: <span id="finalGold">0</span> 💰</p>
+                <p>Enemigos derrotados: <span id="finalEnemies">0</span> ⚔️</p>
+            </div>
+            <button id="restartBtn" class="game-btn primary">🔄 Reintentar</button>
+            <button id="mainMenuBtn" class="game-btn secondary">🏠 Menú Principal</button>
+        </div>
+    </div>
+
+    <!-- Pantalla de Victoria de Etapa -->
+    <div id="stageComplete" class="stage-complete" style="display: none;">
+        <div class="stage-complete-content">
+            <h2>🎉 ¡Etapa Completada!</h2>
+            <p>Has superado la etapa <span id="completedStage">1</span></p>
+            <div class="rewards">
+                <p>Recompensas:</p>
+                <p>💰 Oro: <span id="stageGold">0</span></p>
+                <p>⭐ Experiencia: <span id="stageExp">0</span></p>
+            </div>
+            <button id="nextStageBtn" class="game-btn primary">➡️ Siguiente Etapa</button>
+            <button id="shopStageBtn" class="game-btn secondary">🛒 Ir a la Tienda</button>
+        </div>
+    </div>
+
+    <script>
+        // Variables del juego
+        let gameState = 'menu'; // menu, playing, paused, gameOver, stageComplete
+        let selectedCharacter = 'princess';
+        let gameStats = {
+            health: 100,
+            maxHealth: 100,
+            level: 1,
+            gold: 0,
+            stage: 1,
+            power: 10,
+            speed: 1,
+            jumpHeight: 1,
+            enemiesDefeated: 0,
+            totalGoldEarned: 0,
+            stagesCompleted: 0,
+            playTime: 0
+        };
+
+        let gameObjects = {
+            player: null,
+            enemies: [],
+            platforms: [],
+            coins: [],
+            projectiles: []
+        };
+
+        let gameCanvas, gameCtx;
+        let gameLoop;
+        let keys = {};
+        let gameTime = 0;
+
+        // Inicialización del juego
+        function initGame() {
+            gameCanvas = document.getElementById('gameCanvas');
+            gameCtx = gameCanvas.getContext('2d');
+            
+            // Crear partículas flotantes
+            createParticles();
+            
+            // Event listeners
+            setupEventListeners();
+            
+            // Mostrar menú principal
+            showMainMenu();
+        }
+
+        // Crear partículas flotantes
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 15;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Configurar event listeners
+        function setupEventListeners() {
+            // Selección de personaje
+            document.querySelectorAll('.character-option').forEach(option => {
+                option.addEventListener('click', () => selectCharacter(option.dataset.character));
+            });
+
+            // Botones del menú
+            document.getElementById('startGameBtn').addEventListener('click', startGame);
+            document.getElementById('shopBtn').addEventListener('click', showShop);
+            document.getElementById('statsBtn').addEventListener('click', showStats);
+
+            // Botones del juego
+            document.getElementById('pauseBtn').addEventListener('click', togglePause);
+            document.getElementById('menuBtn').addEventListener('click', returnToMenu);
+
+            // Botones de la tienda
+            document.getElementById('closeShopBtn').addEventListener('click', hideShop);
+            document.querySelectorAll('.buy-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => buyItem(e.target.closest('.shop-item').dataset.item));
+            });
+
+            // Botones de estadísticas
+            document.getElementById('closeStatsBtn').addEventListener('click', hideStats);
+
+            // Botones de game over
+            document.getElementById('restartBtn').addEventListener('click', restartGame);
+            document.getElementById('mainMenuBtn').addEventListener('click', returnToMenu);
+
+            // Botones de completar etapa
+            document.getElementById('nextStageBtn').addEventListener('click', nextStage);
+            document.getElementById('shopStageBtn').addEventListener('click', () => {
+                hideStageComplete();
+                showShop();
+            });
+
+            // Controles del teclado
+            document.addEventListener('keydown', (e) => {
+                keys[e.code] = true;
+                if (e.code === 'Space') e.preventDefault();
+            });
+
+            document.addEventListener('keyup', (e) => {
+                keys[e.code] = false;
+            });
+        }
+
+        // Seleccionar personaje
+        function selectCharacter(character) {
+            selectedCharacter = character;
+            
+            // Actualizar estadísticas según el personaje
+            switch(character) {
+                case 'princess':
+                    gameStats.power = 10;
+                    gameStats.maxHealth = 100;
+                    gameStats.speed = 1;
+                    gameStats.jumpHeight = 1;
+                    break;
+                case 'warrior':
+                    gameStats.power = 15;
+                    gameStats.maxHealth = 80;
+                    gameStats.speed = 1.2;
+                    gameStats.jumpHeight = 0.9;
+                    break;
+                case 'mage':
+                    gameStats.power = 20;
+                    gameStats.maxHealth = 70;
+                    gameStats.speed = 0.8;
+                    gameStats.jumpHeight = 1.1;
+                    break;
+            }
+            
+            gameStats.health = gameStats.maxHealth;
+            
+            // Actualizar UI
+            updateStats();
+            
+            // Resaltar selección
+            document.querySelectorAll('.character-option').forEach(opt => opt.classList.remove('selected'));
+            document.querySelector(`[data-character="${character}"]`).classList.add('selected');
+        }
+
+        // Mostrar menú principal
+        function showMainMenu() {
+            gameState = 'menu';
+            document.getElementById('mainMenu').style.display = 'block';
+            document.getElementById('gameArea').style.display = 'none';
+            document.getElementById('shop').style.display = 'none';
+            document.getElementById('stats').style.display = 'none';
+            document.getElementById('gameOver').style.display = 'none';
+            document.getElementById('stageComplete').style.display = 'none';
+        }
+
+        // Iniciar juego
+        function startGame() {
+            gameState = 'playing';
+            document.getElementById('mainMenu').style.display = 'none';
+            document.getElementById('gameArea').style.display = 'block';
+            
+            // Inicializar nivel
+            initStage();
+            
+            // Iniciar loop del juego
+            gameLoop = setInterval(updateGame, 1000 / 60); // 60 FPS
+        }
+
+        // Inicializar etapa
+        function initStage() {
+            // Crear jugador
+            gameObjects.player = {
+                x: 100,
+                y: 500,
+                width: 40,
+                height: 60,
+                vx: 0,
+                vy: 0,
+                onGround: false,
+                health: gameStats.health,
+                maxHealth: gameStats.maxHealth,
+                power: gameStats.power,
+                speed: gameStats.speed,
+                jumpHeight: gameStats.jumpHeight
+            };
+
+            // Crear plataformas
+            gameObjects.platforms = [
+                { x: 0, y: 560, width: 800, height: 40 }, // Suelo
+                { x: 200, y: 450, width: 100, height: 20 },
+                { x: 400, y: 350, width: 100, height: 20 },
+                { x: 600, y: 250, width: 100, height: 20 },
+                { x: 100, y: 200, width: 100, height: 20 }
+            ];
+
+            // Crear enemigos
+            gameObjects.enemies = [
+                { x: 300, y: 520, width: 30, height: 30, vx: -1, health: 20, type: 'basic' },
+                { x: 500, y: 320, width: 30, height: 30, vx: 1, health: 25, type: 'flying' },
+                { x: 150, y: 150, width: 30, height: 30, vx: -1, health: 30, type: 'strong' }
+            ];
+
+            // Crear monedas
+            gameObjects.coins = [
+                { x: 250, y: 400, width: 20, height: 20, collected: false },
+                { x: 450, y: 300, width: 20, height: 20, collected: false },
+                { x: 650, y: 200, width: 20, height: 20, collected: false },
+                { x: 150, y: 150, width: 20, height: 20, collected: false }
+            ];
+
+            // Limpiar proyectiles
+            gameObjects.projectiles = [];
+        }
+
+        // Actualizar juego
+        function updateGame() {
+            if (gameState !== 'playing') return;
+
+            gameTime += 1/60;
+            gameStats.playTime = Math.floor(gameTime);
+
+            updatePlayer();
+            updateEnemies();
+            updateProjectiles();
+            checkCollisions();
+            drawGame();
+
+            // Verificar si el jugador llegó al final de la etapa
+            if (gameObjects.player.x > 750) {
+                completeStage();
+            }
+        }
+
+        // Actualizar jugador
+        function updatePlayer() {
+            const player = gameObjects.player;
+
+            // Movimiento horizontal
+            if (keys['ArrowLeft']) {
+                player.vx = -3 * player.speed;
+            } else if (keys['ArrowRight']) {
+                player.vx = 3 * player.speed;
+            } else {
+                player.vx *= 0.8; // Fricción
+            }
+
+            // Salto
+            if (keys['Space'] && player.onGround) {
+                player.vy = -12 * player.jumpHeight;
+                player.onGround = false;
+            }
+
+            // Gravedad
+            player.vy += 0.5;
+
+            // Aplicar velocidad
+            player.x += player.vx;
+            player.y += player.vy;
+
+            // Ataque
+            if (keys['KeyX']) {
+                attack();
+            }
+
+            // Límites del canvas
+            if (player.x < 0) player.x = 0;
+            if (player.x > 760) player.x = 760;
+            if (player.y > 560) {
+                player.y = 560;
+                player.vy = 0;
+                player.onGround = true;
+            }
+
+            // Colisión con plataformas
+            player.onGround = false;
+            gameObjects.platforms.forEach(platform => {
+                if (player.x < platform.x + platform.width &&
+                    player.x + player.width > platform.x &&
+                    player.y < platform.y + platform.height &&
+                    player.y + player.height > platform.y) {
+                    
+                    if (player.vy > 0 && player.y < platform.y) {
+                        player.y = platform.y - player.height;
+                        player.vy = 0;
+                        player.onGround = true;
+                    }
+                }
+            });
+        }
+
+        // Ataque del jugador
+        function attack() {
+            const player = gameObjects.player;
+            const projectile = {
+                x: player.x + player.width / 2,
+                y: player.y + player.height / 2,
+                vx: player.vx > 0 ? 8 : -8,
+                width: 10,
+                height: 10,
+                power: player.power
+            };
+            gameObjects.projectiles.push(projectile);
+        }
+
+        // Actualizar enemigos
+        function updateEnemies() {
+            gameObjects.enemies.forEach(enemy => {
+                // Movimiento básico
+                enemy.x += enemy.vx;
+
+                // Cambiar dirección en bordes
+                if (enemy.x <= 0 || enemy.x >= 770) {
+                    enemy.vx *= -1;
+                }
+
+                // Enemigo volador
+                if (enemy.type === 'flying') {
+                    enemy.y += Math.sin(gameTime * 2) * 0.5;
+                }
+            });
+        }
+
+        // Actualizar proyectiles
+        function updateProjectiles() {
+            gameObjects.projectiles = gameObjects.projectiles.filter(projectile => {
+                projectile.x += projectile.vx;
+                return projectile.x > 0 && projectile.x < 800;
+            });
+        }
+
+        // Verificar colisiones
+        function checkCollisions() {
+            const player = gameObjects.player;
+
+            // Colisión con enemigos
+            gameObjects.enemies.forEach((enemy, index) => {
+                if (player.x < enemy.x + enemy.width &&
+                    player.x + player.width > enemy.x &&
+                    player.y < enemy.y + enemy.height &&
+                    player.y + player.height > enemy.y) {
+                    
+                    // Jugador recibe daño
+                    player.health -= 10;
+                    gameStats.health = player.health;
+                    updateStats();
+
+                    if (player.health <= 0) {
+                        gameOver();
+                    }
+                }
+            });
+
+            // Colisión de proyectiles con enemigos
+            gameObjects.projectiles.forEach((projectile, pIndex) => {
+                gameObjects.enemies.forEach((enemy, eIndex) => {
+                    if (projectile.x < enemy.x + enemy.width &&
+                        projectile.x + projectile.width > enemy.x &&
+                        projectile.y < enemy.y + enemy.height &&
+                        projectile.y + projectile.height > enemy.y) {
+                        
+                        // Enemigo recibe daño
+                        enemy.health -= projectile.power;
+                        
+                        // Remover proyectil
+                        gameObjects.projectiles.splice(pIndex, 1);
+                        
+                        // Verificar si el enemigo muere
+                        if (enemy.health <= 0) {
+                            gameObjects.enemies.splice(eIndex, 1);
+                            gameStats.enemiesDefeated++;
+                            gameStats.gold += 10;
+                            gameStats.totalGoldEarned += 10;
+                            updateStats();
+                        }
+                    }
+                });
+            });
+
+            // Colisión con monedas
+            gameObjects.coins.forEach((coin, index) => {
+                if (!coin.collected &&
+                    player.x < coin.x + coin.width &&
+                    player.x + player.width > coin.x &&
+                    player.y < coin.y + coin.height &&
+                    player.y + player.height > coin.y) {
+                    
+                    coin.collected = true;
+                    gameStats.gold += 5;
+                    gameStats.totalGoldEarned += 5;
+                    updateStats();
+                }
+            });
+        }
+
+        // Dibujar juego
+        function drawGame() {
+            const ctx = gameCtx;
+            
+            // Limpiar canvas
+            ctx.clearRect(0, 0, 800, 600);
+            
+            // Fondo degradado
+            const gradient = ctx.createLinearGradient(0, 0, 0, 600);
+            gradient.addColorStop(0, '#FF69B4');
+            gradient.addColorStop(1, '#FF1493');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 800, 600);
+
+            // Dibujar plataformas
+            ctx.fillStyle = '#8B4513';
+            gameObjects.platforms.forEach(platform => {
+                ctx.fillRect(platform.x, platform.y, platform.width, platform.height);
+            });
+
+            // Dibujar jugador
+            ctx.fillStyle = '#FFD700';
+            ctx.fillRect(gameObjects.player.x, gameObjects.player.y, gameObjects.player.width, gameObjects.player.height);
+            
+            // Ojos del jugador
+            ctx.fillStyle = '#000';
+            ctx.fillRect(gameObjects.player.x + 8, gameObjects.player.y + 15, 5, 5);
+            ctx.fillRect(gameObjects.player.x + 27, gameObjects.player.y + 15, 5, 5);
+
+            // Dibujar enemigos
+            gameObjects.enemies.forEach(enemy => {
+                if (enemy.type === 'basic') {
+                    ctx.fillStyle = '#FF0000';
+                } else if (enemy.type === 'flying') {
+                    ctx.fillStyle = '#800080';
+                } else {
+                    ctx.fillStyle = '#8B0000';
+                }
+                ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
+            });
+
+            // Dibujar monedas
+            ctx.fillStyle = '#FFD700';
+            gameObjects.coins.forEach(coin => {
+                if (!coin.collected) {
+                    ctx.beginPath();
+                    ctx.arc(coin.x + coin.width/2, coin.y + coin.height/2, coin.width/2, 0, 2 * Math.PI);
+                    ctx.fill();
+                }
+            });
+
+            // Dibujar proyectiles
+            ctx.fillStyle = '#FFFF00';
+            gameObjects.projectiles.forEach(projectile => {
+                ctx.fillRect(projectile.x, projectile.y, projectile.width, projectile.height);
+            });
+
+            // Dibujar meta
+            ctx.fillStyle = '#00FF00';
+            ctx.fillRect(750, 200, 50, 100);
+            ctx.fillStyle = '#000';
+            ctx.font = '20px Arial';
+            ctx.fillText('🏁', 760, 250);
+        }
+
+        // Completar etapa
+        function completeStage() {
+            gameState = 'stageComplete';
+            clearInterval(gameLoop);
+            
+            gameStats.stagesCompleted++;
+            gameStats.stage++;
+            gameStats.level++;
+            
+            // Recompensas de la etapa
+            const stageGold = 50 + gameStats.stage * 10;
+            const stageExp = 100 + gameStats.stage * 20;
+            
+            gameStats.gold += stageGold;
+            gameStats.totalGoldEarned += stageGold;
+            
+            // Actualizar UI
+            document.getElementById('completedStage').textContent = gameStats.stage - 1;
+            document.getElementById('stageGold').textContent = stageGold;
+            document.getElementById('stageExp').textContent = stageExp;
+            
+            document.getElementById('stageComplete').style.display = 'block';
+            updateStats();
+        }
+
+        // Siguiente etapa
+        function nextStage() {
+            hideStageComplete();
+            startGame();
+        }
+
+        // Ocultar pantalla de completar etapa
+        function hideStageComplete() {
+            document.getElementById('stageComplete').style.display = 'none';
+        }
+
+        // Game Over
+        function gameOver() {
+            gameState = 'gameOver';
+            clearInterval(gameLoop);
+            
+            document.getElementById('finalGold').textContent = gameStats.gold;
+            document.getElementById('finalEnemies').textContent = gameStats.enemiesDefeated;
+            document.getElementById('gameOver').style.display = 'block';
+        }
+
+        // Reiniciar juego
+        function restartGame() {
+            // Resetear estadísticas del juego
+            gameStats.health = gameStats.maxHealth;
+            gameStats.gold = 0;
+            gameStats.stage = 1;
+            gameStats.enemiesDefeated = 0;
+            
+            updateStats();
+            document.getElementById('gameOver').style.display = 'none';
+            startGame();
+        }
+
+        // Mostrar tienda
+        function showShop() {
+            document.getElementById('shop').style.display = 'block';
+            document.getElementById('mainMenu').style.display = 'none';
+        }
+
+        // Ocultar tienda
+        function hideShop() {
+            document.getElementById('shop').style.display = 'none';
+            document.getElementById('mainMenu').style.display = 'block';
+        }
+
+        // Mostrar estadísticas
+        function showStats() {
+            document.getElementById('stats').style.display = 'block';
+            document.getElementById('mainMenu').style.display = 'none';
+            
+            // Actualizar estadísticas
+            document.getElementById('enemiesDefeated').textContent = gameStats.enemiesDefeated;
+            document.getElementById('totalGoldEarned').textContent = gameStats.totalGoldEarned;
+            document.getElementById('stagesCompleted').textContent = gameStats.stagesCompleted;
+            
+            const minutes = Math.floor(gameStats.playTime / 60);
+            const seconds = gameStats.playTime % 60;
+            document.getElementById('playTime').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        // Ocultar estadísticas
+        function hideStats() {
+            document.getElementById('stats').style.display = 'none';
+            document.getElementById('mainMenu').style.display = 'block';
+        }
+
+        // Comprar item
+        function buyItem(itemType) {
+            let cost = 0;
+            let canAfford = false;
+            
+            switch(itemType) {
+                case 'health':
+                    cost = 50;
+                    if (gameStats.gold >= cost) {
+                        gameStats.maxHealth += 20;
+                        gameStats.health = gameStats.maxHealth;
+                        canAfford = true;
+                    }
+                    break;
+                case 'power':
+                    cost = 100;
+                    if (gameStats.gold >= cost) {
+                        gameStats.power += 5;
+                        canAfford = true;
+                    }
+                    break;
+                case 'speed':
+                    cost = 75;
+                    if (gameStats.gold >= cost) {
+                        gameStats.speed += 0.2;
+                        canAfford = true;
+                    }
+                    break;
+                case 'jump':
+                    cost = 60;
+                    if (gameStats.gold >= cost) {
+                        gameStats.jumpHeight += 0.3;
+                        canAfford = true;
+                    }
+                    break;
+            }
+            
+            if (canAfford) {
+                gameStats.gold -= cost;
+                updateStats();
+                
+                // Efecto visual de compra exitosa
+                const buyBtn = event.target;
+                buyBtn.textContent = '✅ Comprado!';
+                buyBtn.style.backgroundColor = '#4CAF50';
+                setTimeout(() => {
+                    buyBtn.textContent = 'Comprar';
+                    buyBtn.style.backgroundColor = '';
+                }, 1000);
+            } else {
+                // Efecto visual de no poder comprar
+                const buyBtn = event.target;
+                buyBtn.textContent = '❌ Sin Oro!';
+                buyBtn.style.backgroundColor = '#f44336';
+                setTimeout(() => {
+                    buyBtn.textContent = 'Comprar';
+                    buyBtn.style.backgroundColor = '';
+                }, 1000);
+            }
+        }
+
+        // Actualizar estadísticas en la UI
+        function updateStats() {
+            document.getElementById('health').textContent = gameStats.health;
+            document.getElementById('level').textContent = gameStats.level;
+            document.getElementById('gold').textContent = gameStats.gold;
+            document.getElementById('stage').textContent = gameStats.stage;
+            document.getElementById('power').textContent = gameStats.power;
+        }
+
+        // Pausar/Reanudar juego
+        function togglePause() {
+            if (gameState === 'playing') {
+                gameState = 'paused';
+                clearInterval(gameLoop);
+                document.getElementById('pauseBtn').textContent = '▶️ Reanudar';
+            } else if (gameState === 'paused') {
+                gameState = 'playing';
+                gameLoop = setInterval(updateGame, 1000 / 60);
+                document.getElementById('pauseBtn').textContent = '⏸️ Pausar';
+            }
+        }
+
+        // Volver al menú
+        function returnToMenu() {
+            if (gameLoop) {
+                clearInterval(gameLoop);
+            }
+            showMainMenu();
+        }
+
+        // Inicializar cuando cargue la página
+        window.onload = function() {
+            initGame();
+            selectCharacter('princess'); // Personaje por defecto
+        };
+    </script>
+
     <!-- ---------FOOTER-------- -->
     <section id="contactos">
         <footer class="fin">
-            <!--<img class="copyright" src="/imagenes/copyright.png" alt="">-->
-            <p><i class="fa-regular fa-copyright"></i>    Joaquin Augusto Flores - Augusto Ojeda Mathe - Ivan Cabrera Gonzalo - Rodrigo Magallanes<br><br>
-                Corrientes Capital - Argentina<br><br>
-                Email: lospibes2024@gmail.com<br>
-            </p>
-            <img src="imagenes/stitch.jpg" alt="stich" class="distro-logo">
+            <p>Joaquin Augusto Flores - Para Mavi con todo mi amor</p>
+            <p>Te amo más que ayer pero menos que mañana 💕</p>
         </footer>  
     </section>
-    
-    <script src="script.js"></script>
-
 </body>
 </html>

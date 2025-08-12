@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Para Mavi</title>
     <link rel="stylesheet" href="/estilos/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
@@ -14,6 +14,9 @@
 </head>
 
 <body class="fondo">
+
+    <!-- Partículas flotantes -->
+    <div class="floating-particles" id="particles"></div>
 
     <header class="encabezado"> 
         <nav class="main-navbar">
@@ -28,22 +31,27 @@
 
     <!-- Canvas para dibujar las flores -->
     <div class="canvas-container" style="text-align: center; margin-top: 20px;">
-        <canvas id="canvas" width="400" height="400" style="border:1px solid #000;"></canvas>
+        <canvas id="canvas" width="600" height="600" style="border:1px solid #000; max-width: 100%; height: auto;"></canvas>
+        <div class="flower-controls" style="margin-top: 20px;">
+            <button id="animateBtn" class="btn btn-outline-primary" style="margin: 0 10px; border-color: #ff69b4; color: #ff69b4;">🌻 Animar Flores Amarillas</button>
+            <button id="resetBtn" class="btn btn-outline-secondary" style="margin: 0 10px; border-color: #ff1493; color: #ff1493;">🔄 Reiniciar</button>
+        </div>
     </div>
 
     <div class="introduccion">
         <div class="content">
-            <h1 class="titulo-intro">Todo el amor que te tengo<br></h1>
+            <h1 class="titulo-intro">🌻 Muchas Flores Amarillas de Amor 🌻<br></h1>
             <p class="texto-intro">Bueno quiern diria que te estaria haciendo una pagina para vos solita mi amor, te amo y sos lo mejor que me paso en la vida <br>
                 No se como paso pero paso, la verdad la mejor decision que tuve fue pedirle a cristian para salir juntos<br>
                 Me encantas y me haces demasiado feliz, y tengo un par de razones por las que te amo tanto<br>
+                Y ahora tienes un hermoso ramo con MUCHAS flores amarillas, todas para ti mi amor 🌻<br>
            
         </div>
      </div>
 
     <div class="contenido-principal">
         <div class="bloque">
-            <h2 class="subtitulo">10 Razones por las cuales te amo<img class="icono" src="/Imagenes/felices.jpg" alt=""></h2>
+            <h2 class="subtitulo">10 Razones por las cuales te amo<img class="icono" src="/imagenes/felices.jpg" alt=""></h2>
             <p>La primera razon: Sos una bomba de energia, yo se que no siempre, pero no siempre puedes estar al 100%, y cuando no estes al 100 estoy yo para recargarte, pero si me encanta que seas hiperactiva<br>
                 La segunda razon: Sos muy compañera, nunca podre agradecerte lo suficiente todo lo que me soportas, la verdad sos unica y te amo tanto por eso. <br>
                 La tercera razon: Amo tu risa, todas tus risas, la falsa , la que estallas, la que parece que lustras el piso ajaaj amo todo.<br>
@@ -66,56 +74,351 @@
     </section> 
 
     <script>
-        // Función para dibujar una flor
-        function drawFlower(ctx, x, y, petalColor, centerColor) {
-            ctx.fillStyle = petalColor;
+        // Variables globales para la animación
+        let animationId;
+        let isAnimating = false;
+        let flowerPositions = [];
+        let flowerSizes = [];
+        let flowerRotations = [];
+        let flowerColors = [];
 
-            // Dibujar pétalos
-            for (let i = 0; i < 8; i++) {
-                ctx.beginPath();
-                ctx.ellipse(x, y, 20, 40, i * Math.PI / 4, 0, 2 * Math.PI);
-                ctx.fill();
+        // Función para crear partículas flotantes
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 20;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particlesContainer.appendChild(particle);
             }
-
-            // Dibujar el centro de la flor
-            ctx.fillStyle = centerColor;
-            ctx.beginPath();
-            ctx.arc(x, y, 20, 0, 2 * Math.PI);
-            ctx.fill();
         }
 
-        // Función para dibujar el ramo de flores
+        // Función para dibujar una flor más grande y detallada
+        function drawFlower(ctx, x, y, size, petalColor, centerColor, rotation = 0) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.rotate(rotation);
+            
+            // Dibujar pétalos más grandes y detallados
+            ctx.fillStyle = petalColor;
+            for (let i = 0; i < 12; i++) {
+                ctx.beginPath();
+                ctx.ellipse(0, 0, size * 0.8, size * 1.6, i * Math.PI / 6, 0, 2 * Math.PI);
+                ctx.fill();
+                
+                // Agregar sombra a los pétalos
+                ctx.shadowColor = 'rgba(0, 0, 0, 0.3)';
+                ctx.shadowBlur = 5;
+                ctx.shadowOffsetX = 2;
+                ctx.shadowOffsetY = 2;
+            }
+            
+            // Dibujar el centro de la flor más grande
+            ctx.fillStyle = centerColor;
+            ctx.shadowBlur = 0;
+            ctx.beginPath();
+            ctx.arc(0, 0, size * 0.4, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Agregar detalles al centro
+            ctx.fillStyle = '#FFD700';
+            ctx.beginPath();
+            ctx.arc(0, 0, size * 0.2, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            ctx.restore();
+        }
+
+        // Función para dibujar tallos con hojas
+        function drawStem(ctx, startX, startY, endX, endY, leafSize = 15) {
+            ctx.strokeStyle = '#228B22';
+            ctx.lineWidth = 8;
+            ctx.lineCap = 'round';
+            
+            // Dibujar tallo principal
+            ctx.beginPath();
+            ctx.moveTo(startX, startY);
+            ctx.lineTo(endX, endY);
+            ctx.stroke();
+            
+            // Agregar hojas
+            ctx.fillStyle = '#32CD32';
+            const leafCount = 3;
+            for (let i = 1; i <= leafCount; i++) {
+                const t = i / (leafCount + 1);
+                const leafX = startX + (endX - startX) * t;
+                const leafY = startY + (endY - startY) * t;
+                
+                ctx.beginPath();
+                ctx.ellipse(leafX, leafY, leafSize, leafSize * 0.6, Math.PI / 4, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+        }
+
+        // Función para dibujar el ramo de flores mejorado
         function drawBouquet() {
             const canvas = document.getElementById('canvas');
             const ctx = canvas.getContext('2d');
 
-            // Verificamos si el contexto se obtuvo correctamente
             if (!ctx) {
                 console.error('No se pudo obtener el contexto del canvas');
                 return;
             }
-            console.log('Contexto obtenido correctamente:', ctx);
 
-            ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpiar el canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Configurar sombras globales
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.2)';
+            ctx.shadowBlur = 10;
+            ctx.shadowOffsetX = 5;
+            ctx.shadowOffsetY = 5;
 
-            // Dibujar tallos
-            ctx.strokeStyle = 'green';
-            ctx.lineWidth = 5;
-            for (let i = 0; i < 5; i++) {
-                ctx.beginPath();
-                ctx.moveTo(200, 400);
-                ctx.lineTo(100 + i * 50, 200);
-                ctx.stroke();
-            }
+            // Dibujar tallos con hojas - para todas las flores
+            const stemPositions = [
+                // Tallos principales para las flores de la primera fila
+                { start: [300, 600], end: [100, 150] },
+                { start: [300, 600], end: [150, 140] },
+                { start: [300, 600], end: [200, 150] },
+                { start: [300, 600], end: [250, 130] },
+                { start: [300, 600], end: [300, 150] },
+                { start: [300, 600], end: [350, 120] },
+                { start: [300, 600], end: [400, 150] },
+                { start: [300, 600], end: [450, 140] },
+                { start: [300, 600], end: [500, 150] },
+                
+                // Tallos para la segunda fila
+                { start: [300, 600], end: [125, 100] },
+                { start: [300, 600], end: [175, 90] },
+                { start: [300, 600], end: [225, 100] },
+                { start: [300, 600], end: [275, 80] },
+                { start: [300, 600], end: [325, 100] },
+                { start: [300, 600], end: [375, 70] },
+                { start: [300, 600], end: [425, 100] },
+                { start: [300, 600], end: [475, 90] },
+                
+                // Tallos para la tercera fila
+                { start: [300, 600], end: [150, 50] },
+                { start: [300, 600], end: [200, 40] },
+                { start: [300, 600], end: [250, 50] },
+                { start: [300, 600], end: [300, 30] },
+                { start: [300, 600], end: [350, 50] },
+                { start: [300, 600], end: [400, 40] },
+                { start: [300, 600], end: [450, 50] },
+                
+                // Tallos para flores laterales
+                { start: [300, 600], end: [80, 200] },
+                { start: [300, 600], end: [520, 200] },
+                { start: [300, 600], end: [70, 250] },
+                { start: [300, 600], end: [530, 250] }
+            ];
+
+            stemPositions.forEach(stem => {
+                drawStem(ctx, stem.start[0], stem.start[1], stem.end[0], stem.end[1]);
+            });
+
+            // Configurar posiciones y tamaños de las flores - MUCHAS FLORES AMARILLAS
+            flowerPositions = [
+                // Primera fila de flores
+                { x: 100, y: 150, size: 45, color: '#FFFF00', centerColor: '#FFD700' },
+                { x: 150, y: 140, size: 50, color: '#FFFF00', centerColor: '#FFD700' },
+                { x: 200, y: 150, size: 55, color: '#FFFF00', centerColor: '#FFD700' },
+                { x: 250, y: 130, size: 60, color: '#FFFF00', centerColor: '#FFD700' },
+                { x: 300, y: 150, size: 65, color: '#FFFF00', centerColor: '#FFD700' },
+                { x: 350, y: 120, size: 70, color: '#FFFF00', centerColor: '#FFD700' },
+                { x: 400, y: 150, size: 55, color: '#FFFF00', centerColor: '#FFD700' },
+                { x: 450, y: 140, size: 50, color: '#FFFF00', centerColor: '#FFD700' },
+                { x: 500, y: 150, size: 45, color: '#FFFF00', centerColor: '#FFD700' },
+                
+                // Segunda fila de flores (más arriba)
+                { x: 125, y: 100, size: 40, color: '#FFFF00', centerColor: '#FFD700' },
+                { x: 175, y: 90, size: 45, color: '#FFFF00', centerColor: '#FFD700' },
+                { x: 225, y: 100, size: 50, color: '#FFFF00', centerColor: '#FFD700' },
+                { x: 275, y: 80, size: 55, color: '#FFFF00', centerColor: '#FFD700' },
+                { x: 325, y: 100, size: 60, color: '#FFFF00', centerColor: '#FFD700' },
+                { x: 375, y: 70, size: 65, color: '#FFFF00', centerColor: '#FFD700' },
+                { x: 425, y: 100, size: 50, color: '#FFFF00', centerColor: '#FFD700' },
+                { x: 475, y: 90, size: 45, color: '#FFFF00', centerColor: '#FFD700' },
+                
+                // Tercera fila de flores (más arriba aún)
+                { x: 150, y: 50, size: 35, color: '#FFFF00', centerColor: '#FFD700' },
+                { x: 200, y: 40, size: 40, color: '#FFFF00', centerColor: '#FFD700' },
+                { x: 250, y: 50, size: 45, color: '#FFFF00', centerColor: '#FFD700' },
+                { x: 300, y: 30, size: 50, color: '#FFFF00', centerColor: '#FFD700' },
+                { x: 350, y: 50, size: 55, color: '#FFFF00', centerColor: '#FFD700' },
+                { x: 400, y: 40, size: 40, color: '#FFFF00', centerColor: '#FFD700' },
+                { x: 450, y: 50, size: 35, color: '#FFFF00', centerColor: '#FFD700' },
+                
+                // Flores adicionales en los laterales
+                { x: 80, y: 200, size: 40, color: '#FFFF00', centerColor: '#FFD700' },
+                { x: 520, y: 200, size: 40, color: '#FFFF00', centerColor: '#FFD700' },
+                { x: 70, y: 250, size: 35, color: '#FFFF00', centerColor: '#FFD700' },
+                { x: 530, y: 250, size: 35, color: '#FFFF00', centerColor: '#FFD700' }
+            ];
+
+            // Inicializar arrays de animación - todas las flores serán amarillas
+            flowerSizes = flowerPositions.map(() => 1);
+            flowerRotations = flowerPositions.map(() => 0);
+            flowerColors = flowerPositions.map(() => '#FFFF00');
 
             // Dibujar flores
-            for (let i = 0; i < 5; i++) {
-                drawFlower(ctx, 100 + i * 50, 200, 'yellow', 'orange');
+            flowerPositions.forEach((flower, index) => {
+                drawFlower(ctx, flower.x, flower.y, flower.size, flower.color, flower.centerColor, flowerRotations[index]);
+            });
+
+            // Agregar mariposas decorativas
+            drawButterflies(ctx);
+        }
+
+        // Función para dibujar mariposas
+        function drawButterflies(ctx) {
+            ctx.fillStyle = '#FF69B4';
+            ctx.shadowBlur = 0;
+            
+            // Mariposa 1
+            ctx.beginPath();
+            ctx.ellipse(100, 150, 8, 15, Math.PI / 6, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.ellipse(120, 150, 8, 15, -Math.PI / 6, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Mariposa 2
+            ctx.fillStyle = '#FF1493';
+            ctx.beginPath();
+            ctx.ellipse(500, 120, 10, 18, Math.PI / 4, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.ellipse(520, 120, 10, 18, -Math.PI / 4, 0, 2 * Math.PI);
+            ctx.fill();
+        }
+
+        // Función para animar las flores
+        function animateFlowers() {
+            if (isAnimating) return;
+            
+            isAnimating = true;
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Actualizar posiciones y propiedades de las flores
+                flowerPositions.forEach((flower, index) => {
+                    // Hacer que las flores se muevan suavemente
+                    flower.y += Math.sin(Date.now() * 0.003 + index) * 0.5;
+                    flower.x += Math.cos(Date.now() * 0.002 + index) * 0.3;
+                    
+                    // Cambiar tamaños
+                    flowerSizes[index] = 1 + Math.sin(Date.now() * 0.005 + index) * 0.1;
+                    
+                    // Rotar flores
+                    flowerRotations[index] += 0.02;
+                    
+                    // Mantener todas las flores amarillas con variaciones sutiles
+                    const yellowVariations = ['#FFFF00', '#FFEB3B', '#FFD700', '#FFC107', '#FFEB3B'];
+                    flowerColors[index] = yellowVariations[index % yellowVariations.length];
+                });
+                
+                // Redibujar tallos - para todas las flores
+                const stemPositions = [
+                    // Tallos principales para las flores de la primera fila
+                    { start: [300, 600], end: [100, 150] },
+                    { start: [300, 600], end: [150, 140] },
+                    { start: [300, 600], end: [200, 150] },
+                    { start: [300, 600], end: [250, 130] },
+                    { start: [300, 600], end: [300, 150] },
+                    { start: [300, 600], end: [350, 120] },
+                    { start: [300, 600], end: [400, 150] },
+                    { start: [300, 600], end: [450, 140] },
+                    { start: [300, 600], end: [500, 150] },
+                    
+                    // Tallos para la segunda fila
+                    { start: [300, 600], end: [125, 100] },
+                    { start: [300, 600], end: [175, 90] },
+                    { start: [300, 600], end: [225, 100] },
+                    { start: [300, 600], end: [275, 80] },
+                    { start: [300, 600], end: [325, 100] },
+                    { start: [300, 600], end: [375, 70] },
+                    { start: [300, 600], end: [425, 100] },
+                    { start: [300, 600], end: [475, 90] },
+                    
+                    // Tallos para la tercera fila
+                    { start: [300, 600], end: [150, 50] },
+                    { start: [300, 600], end: [200, 40] },
+                    { start: [300, 600], end: [250, 50] },
+                    { start: [300, 600], end: [300, 30] },
+                    { start: [300, 600], end: [350, 50] },
+                    { start: [300, 600], end: [400, 40] },
+                    { start: [300, 600], end: [450, 50] },
+                    
+                    // Tallos para flores laterales
+                    { start: [300, 600], end: [80, 200] },
+                    { start: [300, 600], end: [520, 200] },
+                    { start: [300, 600], end: [70, 250] },
+                    { start: [300, 600], end: [530, 250] }
+                ];
+                
+                stemPositions.forEach(stem => {
+                    drawStem(ctx, stem.start[0], stem.start[1], stem.end[0], stem.end[1]);
+                });
+                
+                // Redibujar flores con nuevas propiedades - todas amarillas
+                flowerPositions.forEach((flower, index) => {
+                    const currentSize = flower.size * flowerSizes[index];
+                    drawFlower(ctx, flower.x, flower.y, currentSize, flowerColors[index], '#FFD700', flowerRotations[index]);
+                });
+                
+                // Redibujar mariposas
+                drawButterflies(ctx);
+                
+                animationId = requestAnimationFrame(animate);
+            }
+            
+            animate();
+        }
+
+        // Función para detener la animación
+        function stopAnimation() {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                isAnimating = false;
             }
         }
 
-        // Llamar a la función para dibujar el ramo de flores cuando cargue la página
-        window.onload = drawBouquet;
+        // Función para reiniciar - manteniendo todas las flores amarillas
+        function resetFlowers() {
+            stopAnimation();
+            // Resetear arrays de animación a colores amarillos
+            flowerSizes = flowerPositions.map(() => 1);
+            flowerRotations = flowerPositions.map(() => 0);
+            flowerColors = flowerPositions.map(() => '#FFFF00');
+            drawBouquet();
+        }
+
+        // Event listeners
+        document.getElementById('animateBtn').addEventListener('click', function() {
+            if (isAnimating) {
+                stopAnimation();
+                this.textContent = '🌻 Animar Flores Amarillas';
+            } else {
+                animateFlowers();
+                this.textContent = '⏸️ Pausar';
+            }
+        });
+
+        document.getElementById('resetBtn').addEventListener('click', resetFlowers);
+
+        // Inicializar cuando cargue la página
+        window.onload = function() {
+            createParticles();
+            drawBouquet();
+        };
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

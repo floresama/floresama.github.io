@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trabajo Practico Linux</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Collage de Amor - Para Mavi</title>
     <link rel="stylesheet" href="/estilos/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,120 +11,385 @@
     <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="./imagenes/linux.png" type="">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="/estilos/contactos.css">
-
+    <link rel="stylesheet" href="/estilos/collage.css">
 </head>
 <body class="fondo">
+    <!-- Corazones flotantes -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
     <header class="encabezado"> 
         <nav class="main-navbar">
-            <img src="/imagenes/logoLP.png" alt="" class="logoPrincipal">
+            <img src="/imagenes/bellaka.jpeg" alt="" class="logoPrincipal">
             <ul class="menu">
                 <li><a class="nav-item" href="index.html"><strong>Inicio</strong></a></li>
-                <li><a class="nav-item" href="actividades de amor.html"><strong>Actividades de amor</strong></a></li>      
+                <li><a class="nav-item" href="actividades_de_amor.html"><strong>Actividades de amor</strong></a></li>      
                 <li><a class="nav-item" href="collage.html"><strong>Collage</strong></a></li>                  
             </ul>
         </nav>
     </header>
 
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="/imagenes/pg1.jpeg" class="card-img-top" alt="...">
+    <div class="collage-header">
+        <h1 class="collage-title">💕 Nuestro Collage de Amor 💕</h1>
+        <p class="collage-subtitle">Cada foto es un momento especial que compartimos juntos, mi amor</p>
+        <p class="collage-subtitle">Te amo más que ayer pero menos que mañana ❤️</p>
+    </div>
+
+    <div class="photo-grid">
+        <div class="responsive-grid">
+            <div class="photo-card" onclick="openPhotoModal('/imagenes/pg1.jpeg', '💖 Nuestro primer momento juntos 💖', '💕 Recuerdo Especial #1')">
+                <div style="position: relative;">
+                    <img src="/imagenes/pg1.jpeg" alt="Momento especial 1" class="card-img-top">
+                    <div class="photo-overlay">💖 Nuestro primer momento juntos 💖</div>
+                </div>
+                <div class="photo-info">
+                    <div class="photo-title">💕 Recuerdo Especial #1</div>
+                    <div class="photo-description">Cada foto cuenta nuestra historia de amor</div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="/imagenes/pg2.jpeg" class="card-img-top" alt="...">
+            
+            <div class="photo-card" onclick="openPhotoModal('/imagenes/pg2.jpeg', '🌹 Un día perfecto juntos 🌹', '💕 Recuerdo Especial #2')">
+                <div style="position: relative;">
+                    <img src="/imagenes/pg2.jpeg" alt="Momento especial 2" class="card-img-top">
+                    <div class="photo-overlay">🌹 Un día perfecto juntos 🌹</div>
+                </div>
+                <div class="photo-info">
+                    <div class="photo-title">💕 Recuerdo Especial #2</div>
+                    <div class="photo-description">Los mejores momentos son contigo</div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="/imagenes/pg3.jpeg" class="card-img-top" alt="...">
+            
+            <div class="photo-card" onclick="openPhotoModal('/imagenes/pg3.jpeg', '✨ Magia en cada momento ✨', '💕 Recuerdo Especial #3')">
+                <div style="position: relative;">
+                    <img src="/imagenes/pg3.jpeg" alt="Momento especial 3" class="card-img-top">
+                    <div class="photo-overlay">✨ Magia en cada momento ✨</div>
+                </div>
+                <div class="photo-info">
+                    <div class="photo-title">💕 Recuerdo Especial #3</div>
+                    <div class="photo-description">Tu sonrisa ilumina mis días</div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="/imagenes/pg4.jpeg" class="card-img-top" alt="...">
+            
+            <div class="photo-card" onclick="openPhotoModal('/imagenes/pg4.jpeg', '💝 Amor infinito 💝', '💕 Recuerdo Especial #4')">
+                <div style="position: relative;">
+                    <img src="/imagenes/pg4.jpeg" alt="Momento especial 4" class="card-img-top">
+                    <div class="photo-overlay">💝 Amor infinito 💝</div>
+                </div>
+                <div class="photo-info">
+                    <div class="photo-title">💕 Recuerdo Especial #4</div>
+                    <div class="photo-description">Cada día te amo más</div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="/imagenes/pg5.jpeg" class="card-img-top" alt="...">
+            
+            <div class="photo-card" onclick="openPhotoModal('/imagenes/pg5.jpeg', '🎀 Eternamente enamorados 🎀', '💕 Recuerdo Especial #5')">
+                <div style="position: relative;">
+                    <img src="/imagenes/pg5.jpeg" alt="Momento especial 5" class="card-img-top">
+                    <div class="photo-overlay">🎀 Eternamente enamorados 🎀</div>
+                </div>
+                <div class="photo-info">
+                    <div class="photo-title">💕 Recuerdo Especial #5</div>
+                    <div class="photo-description">Nuestro amor es para siempre</div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="/imagenes/pg6.jpeg" class="card-img-top" alt="...">
+            
+            <div class="photo-card" onclick="openPhotoModal('/imagenes/pg6.jpeg', '🌸 Flores para mi amor 🌸', '💕 Recuerdo Especial #6')">
+                <div style="position: relative;">
+                    <img src="/imagenes/pg6.jpeg" alt="Momento especial 6" class="card-img-top">
+                    <div class="photo-overlay">🌸 Flores para mi amor 🌸</div>
+                </div>
+                <div class="photo-info">
+                    <div class="photo-title">💕 Recuerdo Especial #6</div>
+                    <div class="photo-description">Como flores en primavera</div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="/imagenes/pg7.jpeg" class="card-img-top" alt="...">
+            
+            <div class="photo-card" onclick="openPhotoModal('/imagenes/pg7.jpeg', '💫 Estrellas en tus ojos 💫', '💕 Recuerdo Especial #7')">
+                <div style="position: relative;">
+                    <img src="/imagenes/pg7.jpeg" alt="Momento especial 7" class="card-img-top">
+                    <div class="photo-overlay">💫 Estrellas en tus ojos 💫</div>
+                </div>
+                <div class="photo-info">
+                    <div class="photo-title">💕 Recuerdo Especial #7</div>
+                    <div class="photo-description">Eres mi estrella más brillante</div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="/imagenes/pg8.jpeg" class="card-img-top" alt="...">
+            
+            <div class="photo-card" onclick="openPhotoModal('/imagenes/pg8.jpeg', '🎭 Nuestra historia de amor 🎭', '💕 Recuerdo Especial #8')">
+                <div style="position: relative;">
+                    <img src="/imagenes/pg8.jpeg" alt="Momento especial 8" class="card-img-top">
+                    <div class="photo-overlay">🎭 Nuestra historia de amor 🎭</div>
+                </div>
+                <div class="photo-info">
+                    <div class="photo-title">💕 Recuerdo Especial #8</div>
+                    <div class="photo-description">Cada capítulo es más hermoso</div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="/imagenes/pg9.jpeg" class="card-img-top" alt="...">
+            
+            <div class="photo-card" onclick="openPhotoModal('/imagenes/pg9.jpeg', '🌈 Colores de amor 🌈', '💕 Recuerdo Especial #9')">
+                <div style="position: relative;">
+                    <img src="/imagenes/pg9.jpeg" alt="Momento especial 9" class="card-img-top">
+                    <div class="photo-overlay">🌈 Colores de amor 🌈</div>
+                </div>
+                <div class="photo-info">
+                    <div class="photo-title">💕 Recuerdo Especial #9</div>
+                    <div class="photo-description">Nuestro amor es multicolor</div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="/imagenes/pg10.jpeg" class="card-img-top" alt="...">
+            
+            <div class="photo-card" onclick="openPhotoModal('/imagenes/pg10.jpeg', '🎪 Circo de emociones 🎪', '💕 Recuerdo Especial #10')">
+                <div style="position: relative;">
+                    <img src="/imagenes/pg10.jpeg" alt="Momento especial 10" class="card-img-top">
+                    <div class="photo-overlay">🎪 Circo de emociones 🎪</div>
+                </div>
+                <div class="photo-info">
+                    <div class="photo-title">💕 Recuerdo Especial #10</div>
+                    <div class="photo-description">Contigo cada día es una aventura</div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="/imagenes/pg11.jpeg" class="card-img-top" alt="...">
+            
+            <div class="photo-card" onclick="openPhotoModal('/imagenes/pg11.jpeg', '🎨 Arte del amor 🎨', '💕 Recuerdo Especial #11')">
+                <div style="position: relative;">
+                    <img src="/imagenes/pg11.jpeg" alt="Momento especial 11" class="card-img-top">
+                    <div class="photo-overlay">🎨 Arte del amor 🎨</div>
+                </div>
+                <div class="photo-info">
+                    <div class="photo-title">💕 Recuerdo Especial #11</div>
+                    <div class="photo-description">Nuestro amor es una obra maestra</div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="/imagenes/pg12.jpeg" class="card-img-top" alt="...">
+            
+            <div class="photo-card" onclick="openPhotoModal('/imagenes/pg12.jpeg', '🎭 Teatro del corazón 🎭', '💕 Recuerdo Especial #12')">
+                <div style="position: relative;">
+                    <img src="/imagenes/pg12.jpeg" alt="Momento especial 12" class="card-img-top">
+                    <div class="photo-overlay">🎭 Teatro del corazón 🎭</div>
+                </div>
+                <div class="photo-info">
+                    <div class="photo-title">💕 Recuerdo Especial #12</div>
+                    <div class="photo-description">Actuamos en la comedia del amor</div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="/imagenes/pg13.jpeg" class="card-img-top" alt="...">
+            
+            <div class="photo-card" onclick="openPhotoModal('/imagenes/pg13.jpeg', '🎪 Magia del amor 🎪', '💕 Recuerdo Especial #13')">
+                <div style="position: relative;">
+                    <img src="/imagenes/pg13.jpeg" alt="Momento especial 13" class="card-img-top">
+                    <div class="photo-overlay">🎪 Magia del amor 🎪</div>
+                </div>
+                <div class="photo-info">
+                    <div class="photo-title">💕 Recuerdo Especial #13</div>
+                    <div class="photo-description">Contigo la magia es real</div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="/imagenes/pg14.jpeg" class="card-img-top" alt="...">
+            
+            <div class="photo-card" onclick="openPhotoModal('/imagenes/pg14.jpeg', '🎨 Pintura del corazón 🎨', '💕 Recuerdo Especial #14')">
+                <div style="position: relative;">
+                    <img src="/imagenes/pg14.jpeg" alt="Momento especial 14" class="card-img-top">
+                    <div class="photo-overlay">🎨 Pintura del corazón 🎨</div>
+                </div>
+                <div class="photo-info">
+                    <div class="photo-title">💕 Recuerdo Especial #14</div>
+                    <div class="photo-description">Cada pincelada es amor</div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="/imagenes/pg15.jpeg" class="card-img-top" alt="...">
+            
+            <div class="photo-card" onclick="openPhotoModal('/imagenes/pg15.jpeg', '🎭 Drama del amor 🎭', '💕 Recuerdo Especial #15')">
+                <div style="position: relative;">
+                    <img src="/imagenes/pg15.jpeg" alt="Momento especial 15" class="card-img-top">
+                    <div class="photo-overlay">🎭 Drama del amor 🎭</div>
+                </div>
+                <div class="photo-info">
+                    <div class="photo-title">💕 Recuerdo Especial #15</div>
+                    <div class="photo-description">Nuestra telenovela personal</div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="/imagenes/pg1.jpeg" class="card-img-top" alt="...">
+            
+            <div class="photo-card" onclick="openPhotoModal('/imagenes/pg16.jpeg', '🎪 Show del corazón 🎪', '💕 Recuerdo Especial #16')">
+                <div style="position: relative;">
+                    <img src="/imagenes/pg16.jpeg" alt="Momento especial 16" class="card-img-top">
+                    <div class="photo-overlay">🎪 Show del corazón 🎪</div>
+                </div>
+                <div class="photo-info">
+                    <div class="photo-title">💕 Recuerdo Especial #16</div>
+                    <div class="photo-description">El mejor espectáculo es nuestro amor</div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="/imagenes/pg17.jpeg" class="card-img-top" alt="...">
+            
+            <div class="photo-card" onclick="openPhotoModal('/imagenes/pg17.jpeg', '🎨 Galería del amor 🎨', '💕 Recuerdo Especial #17')">
+                <div style="position: relative;">
+                    <img src="/imagenes/pg17.jpeg" alt="Momento especial 17" class="card-img-top">
+                    <div class="photo-overlay">🎨 Galería del amor 🎨</div>
+                </div>
+                <div class="photo-info">
+                    <div class="photo-title">💕 Recuerdo Especial #17</div>
+                    <div class="photo-description">Exponemos nuestro amor al mundo</div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <img src="/imagenes/pg18.jpeg" class="card-img-top" alt="...">
+            
+            <div class="photo-card" onclick="openPhotoModal('/imagenes/pg18.jpeg', '🎭 Final feliz 🎭', '💕 Recuerdo Especial #18')">
+                <div style="position: relative;">
+                    <img src="/imagenes/pg18.jpeg" alt="Momento especial 18" class="card-img-top">
+                    <div class="photo-overlay">🎭 Final feliz 🎭</div>
+                </div>
+                <div class="photo-info">
+                    <div class="photo-title">💕 Recuerdo Especial #18</div>
+                    <div class="photo-description">Y vivimos felices para siempre</div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Modal para mostrar fotos en pantalla completa -->
+    <div id="photoModal" class="photo-modal">
+        <div class="photo-modal-content">
+            <span class="close-modal" onclick="closePhotoModal()">&times;</span>
+            <div class="modal-photo-container">
+                <img id="modalPhoto" src="" alt="Foto en pantalla completa" class="modal-photo">
+            </div>
+            <div class="modal-info">
+                <h3 id="modalTitle" class="modal-title"></h3>
+                <p id="modalDescription" class="modal-description"></p>
+            </div>
+            <div class="modal-controls">
+                <button class="modal-btn prev-btn" onclick="navigatePhoto(-1)">&#10094; Anterior</button>
+                <button class="modal-btn next-btn" onclick="navigatePhoto(1)">Siguiente &#10095;</button>
+            </div>
+        </div>
+    </div>
 
     <!-- ---------FOOTER-------- -->
     <section id="contactos">
-        
+        <footer class="fin">
+            <p>💕 Te amo infinito Mavi 💕</p>
+            <p>Gracias por ser la luz de mi vida</p>
+        </footer>  
     </section>
+
+    <script>
+        // Variables para el modal
+        let currentPhotoIndex = 0;
+        const photoData = [
+            { src: '/imagenes/pg1.jpeg', overlay: '💖 Nuestro primer momento juntos 💖', title: '💕 Recuerdo Especial #1' },
+            { src: '/imagenes/pg2.jpeg', overlay: '🌹 Un día perfecto juntos 🌹', title: '💕 Recuerdo Especial #2' },
+            { src: '/imagenes/pg3.jpeg', overlay: '✨ Magia en cada momento ✨', title: '💕 Recuerdo Especial #3' },
+            { src: '/imagenes/pg4.jpeg', overlay: '💝 Amor infinito 💝', title: '💕 Recuerdo Especial #4' },
+            { src: '/imagenes/pg5.jpeg', overlay: '🎀 Eternamente enamorados 🎀', title: '💕 Recuerdo Especial #5' },
+            { src: '/imagenes/pg6.jpeg', overlay: '🌸 Flores para mi amor 🌸', title: '💕 Recuerdo Especial #6' },
+            { src: '/imagenes/pg7.jpeg', overlay: '💫 Estrellas en tus ojos 💫', title: '💕 Recuerdo Especial #7' },
+            { src: '/imagenes/pg8.jpeg', overlay: '🎭 Nuestra historia de amor 🎭', title: '💕 Recuerdo Especial #8' },
+            { src: '/imagenes/pg9.jpeg', overlay: '🌈 Colores de amor 🌈', title: '💕 Recuerdo Especial #9' },
+            { src: '/imagenes/pg10.jpeg', overlay: '🎪 Circo de emociones 🎪', title: '💕 Recuerdo Especial #10' },
+            { src: '/imagenes/pg11.jpeg', overlay: '🎨 Arte del amor 🎨', title: '💕 Recuerdo Especial #11' },
+            { src: '/imagenes/pg12.jpeg', overlay: '🎭 Teatro del corazón 🎭', title: '💕 Recuerdo Especial #12' },
+            { src: '/imagenes/pg13.jpeg', overlay: '🎪 Magia del amor 🎪', title: '💕 Recuerdo Especial #13' },
+            { src: '/imagenes/pg14.jpeg', overlay: '🎨 Pintura del corazón 🎨', title: '💕 Recuerdo Especial #14' },
+            { src: '/imagenes/pg15.jpeg', overlay: '🎭 Drama del amor 🎭', title: '💕 Recuerdo Especial #15' },
+            { src: '/imagenes/pg16.jpeg', overlay: '🎪 Show del corazón 🎪', title: '💕 Recuerdo Especial #16' },
+            { src: '/imagenes/pg17.jpeg', overlay: '🎨 Galería del amor 🎨', title: '💕 Recuerdo Especial #17' },
+            { src: '/imagenes/pg18.jpeg', overlay: '🎭 Final feliz 🎭', title: '💕 Recuerdo Especial #18' }
+        ];
+
+        // Función para abrir el modal de foto
+        function openPhotoModal(photoSrc, overlayText, title) {
+            currentPhotoIndex = photoData.findIndex(photo => photo.src === photoSrc);
+            if (currentPhotoIndex === -1) currentPhotoIndex = 0;
+            
+            const modal = document.getElementById('photoModal');
+            const modalPhoto = document.getElementById('modalPhoto');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+            
+            modalPhoto.src = photoSrc;
+            modalTitle.textContent = title;
+            modalDescription.textContent = overlayText;
+            
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevenir scroll
+        }
+
+        // Función para cerrar el modal
+        function closePhotoModal() {
+            const modal = document.getElementById('photoModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restaurar scroll
+        }
+
+        // Función para navegar entre fotos
+        function navigatePhoto(direction) {
+            currentPhotoIndex = (currentPhotoIndex + direction + photoData.length) % photoData.length;
+            
+            const photo = photoData[currentPhotoIndex];
+            const modalPhoto = document.getElementById('modalPhoto');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+            
+            modalPhoto.src = photo.src;
+            modalTitle.textContent = photo.title;
+            modalDescription.textContent = photo.overlay;
+        }
+
+        // Cerrar modal al hacer click fuera de la foto
+        document.getElementById('photoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePhotoModal();
+            }
+        });
+
+        // Navegación con teclado
+        document.addEventListener('keydown', function(e) {
+            if (document.getElementById('photoModal').style.display === 'flex') {
+                switch(e.key) {
+                    case 'Escape':
+                        closePhotoModal();
+                        break;
+                    case 'ArrowLeft':
+                        navigatePhoto(-1);
+                        break;
+                    case 'ArrowRight':
+                        navigatePhoto(1);
+                        break;
+                }
+            }
+        });
+
+        // Crear corazones flotantes
+        function createFloatingHearts() {
+            const container = document.getElementById('floatingHearts');
+            const heartCount = 15;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.innerHTML = '💖';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.top = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 6 + 's';
+                heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                container.appendChild(heart);
+            }
+        }
+
+        // Efecto de aparición escalonada para las tarjetas
+        function animateCards() {
+            const cards = document.querySelectorAll('.photo-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        }
+
+        // Inicializar cuando cargue la página
+        window.onload = function() {
+            createFloatingHearts();
+            setTimeout(animateCards, 500);
+        };
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 </html>
