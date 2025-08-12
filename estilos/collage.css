@@ -260,9 +260,10 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(10px);
     animation: modalFadeIn 0.3s ease-out;
+    overflow: hidden;
 }
 
 .photo-modal-content {
@@ -305,20 +306,24 @@
 .modal-photo-container {
     position: relative;
     width: 100%;
-    height: 80%;
+    height: 75%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+    overflow: hidden;
 }
 
 .modal-photo {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 95%;
+    max-height: 95%;
+    width: auto;
+    height: auto;
     object-fit: contain;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease;
+    background-color: transparent;
 }
 
 .modal-photo:hover {
@@ -333,6 +338,7 @@
     text-align: center;
     margin-bottom: 20px;
     border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 90%;
 }
 
 .modal-title {
@@ -362,6 +368,7 @@
     align-items: center;
     padding: 0 30px;
     pointer-events: none;
+    z-index: 10001;
 }
 
 .modal-btn {
@@ -377,6 +384,7 @@
     box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
     pointer-events: auto;
     min-width: 120px;
+    z-index: 10002;
 }
 
 .modal-btn:hover {

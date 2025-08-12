@@ -49,17 +49,20 @@ body {
 }
 
 .logoPrincipal {
-    width: 120px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     object-fit: cover;
     transition: all 0.3s ease;
     box-shadow: 0px 4px 15px rgba(255, 20, 147, 0.4);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    background-color: white;
 }
 
 .logoPrincipal:hover {
     transform: scale(1.1) rotate(5deg);
     box-shadow: 0px 8px 25px rgba(255, 20, 147, 0.6);
+    border-color: rgba(255, 255, 255, 0.6);
 }
 
 .menu {
@@ -316,77 +319,44 @@ body {
 
 /* Responsive design */
 @media (max-width: 768px) {
-    .menu {
-        flex-direction: column;
-        gap: 15px;
+    .encabezado {
+        padding: 12px;
     }
     
-    .titulo-intro {
-        font-size: 2em;
-    }
-    
-    .introduccion, .contenido-principal {
-        margin: 15px;
-        padding: 30px 20px;
-    }
-    
-    .canvas-container {
-        margin: 20px;
-        padding: 20px;
-    }
-    
-    #canvas {
-        width: 100%;
-        max-width: 400px;
-        height: auto;
-    }
-}
-
-@media (max-width: 480px) {
     .main-navbar {
-        flex-direction: column;
-        gap: 15px;
+        gap: 20px;
     }
     
     .logoPrincipal {
-        width: 100px;
-        height: 50px;
+        width: 70px;
+        height: 70px;
+        border-width: 2px;
     }
     
     .menu {
-        gap: 10px;
+        gap: 20px;
     }
     
     .nav-item {
         font-size: 1em;
-        padding: 8px 15px;
+        padding: 8px 16px;
     }
     
     .titulo-intro {
-        font-size: 1.8em;
-        line-height: 1.2;
+        font-size: 2.2em;
     }
     
     .texto-intro {
         font-size: 1.1em;
-        line-height: 1.6;
-    }
-    
-    .introduccion, .contenido-principal {
-        margin: 10px;
-        padding: 25px 15px;
-        border-radius: 20px;
     }
     
     .subtitulo {
-        font-size: 1.8em;
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
+        font-size: 1.6em;
     }
     
-    .subtitulo .icono {
-        width: 80px;
+    .introduccion, .contenido-principal {
+        margin: 15px;
+        padding: 25px 20px;
     }
     
     .canvas-container {
@@ -395,27 +365,45 @@ body {
     }
     
     #canvas {
-        width: 100%;
-        max-width: 350px;
-        height: auto;
+        max-width: 400px;
     }
     
     .flower-controls {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
+        gap: 15px;
     }
     
     .flower-controls .btn {
-        width: 100%;
-        max-width: 200px;
+        padding: 12px 24px;
+        font-size: 16px;
     }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 480px) {
+    .encabezado {
+        padding: 10px;
+    }
+    
+    .main-navbar {
+        gap: 15px;
+    }
+    
+    .logoPrincipal {
+        width: 65px;
+        height: 65px;
+        border-width: 2px;
+    }
+    
+    .menu {
+        gap: 15px;
+    }
+    
+    .nav-item {
+        font-size: 0.95em;
+        padding: 6px 12px;
+    }
+    
     .titulo-intro {
-        font-size: 1.6em;
+        font-size: 1.8em;
     }
     
     .texto-intro {
@@ -423,16 +411,76 @@ body {
     }
     
     .subtitulo {
-        font-size: 1.6em;
+        font-size: 1.4em;
     }
     
     .introduccion, .contenido-principal {
-        margin: 8px;
-        padding: 20px 12px;
+        margin: 10px;
+        padding: 20px 15px;
     }
     
     .canvas-container {
         margin: 10px;
+        padding: 12px;
+    }
+    
+    #canvas {
+        max-width: 320px;
+    }
+    
+    .flower-controls {
+        gap: 12px;
+    }
+    
+    .flower-controls .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 360px) {
+    .encabezado {
+        padding: 8px;
+    }
+    
+    .main-navbar {
+        gap: 12px;
+    }
+    
+    .logoPrincipal {
+        width: 60px;
+        height: 60px;
+        border-width: 2px;
+    }
+    
+    .menu {
+        gap: 12px;
+    }
+    
+    .nav-item {
+        font-size: 0.9em;
+        padding: 5px 10px;
+    }
+    
+    .titulo-intro {
+        font-size: 1.6em;
+    }
+    
+    .texto-intro {
+        font-size: 0.95em;
+    }
+    
+    .subtitulo {
+        font-size: 1.3em;
+    }
+    
+    .introduccion, .contenido-principal {
+        margin: 8px;
+        padding: 18px 12px;
+    }
+    
+    .canvas-container {
+        margin: 8px;
         padding: 10px;
     }
     
@@ -440,18 +488,40 @@ body {
         max-width: 300px;
     }
     
-    .logoPrincipal {
-        width: 80px;
-        height: 40px;
+    .flower-controls {
+        gap: 10px;
     }
     
-    .nav-item {
-        font-size: 0.9em;
-        padding: 6px 12px;
+    .flower-controls .btn {
+        padding: 8px 16px;
+        font-size: 13px;
     }
 }
 
 @media (max-width: 320px) {
+    .encabezado {
+        padding: 6px;
+    }
+    
+    .main-navbar {
+        gap: 10px;
+    }
+    
+    .logoPrincipal {
+        width: 55px;
+        height: 55px;
+        border-width: 1px;
+    }
+    
+    .menu {
+        gap: 10px;
+    }
+    
+    .nav-item {
+        font-size: 0.85em;
+        padding: 4px 8px;
+    }
+    
     .titulo-intro {
         font-size: 1.4em;
     }
@@ -461,16 +531,16 @@ body {
     }
     
     .subtitulo {
-        font-size: 1.4em;
+        font-size: 1.2em;
     }
     
     .introduccion, .contenido-principal {
-        margin: 5px;
+        margin: 6px;
         padding: 15px 10px;
     }
     
     .canvas-container {
-        margin: 8px;
+        margin: 6px;
         padding: 8px;
     }
     
@@ -479,9 +549,7 @@ body {
     }
     
     .flower-controls {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+        gap: 8px;
     }
     
     .flower-controls .btn {
@@ -492,6 +560,29 @@ body {
 }
 
 @media (max-width: 280px) {
+    .encabezado {
+        padding: 5px;
+    }
+    
+    .main-navbar {
+        gap: 8px;
+    }
+    
+    .logoPrincipal {
+        width: 50px;
+        height: 50px;
+        border-width: 1px;
+    }
+    
+    .menu {
+        gap: 8px;
+    }
+    
+    .nav-item {
+        font-size: 0.8em;
+        padding: 4px 6px;
+    }
+    
     .titulo-intro {
         font-size: 1.2em;
     }
@@ -501,37 +592,31 @@ body {
     }
     
     .subtitulo {
-        font-size: 1.2em;
+        font-size: 1.1em;
     }
     
     .introduccion, .contenido-principal {
-        margin: 3px;
+        margin: 4px;
         padding: 12px 8px;
     }
     
     .canvas-container {
-        margin: 5px;
-        padding: 5px;
+        margin: 4px;
+        padding: 6px;
     }
     
     #canvas {
         max-width: 250px;
     }
     
+    .flower-controls {
+        gap: 6px;
+    }
+    
     .flower-controls .btn {
         min-width: 100px;
         padding: 6px 12px;
         font-size: 12px;
-    }
-    
-    .logoPrincipal {
-        width: 60px;
-        height: 30px;
-    }
-    
-    .nav-item {
-        font-size: 0.8em;
-        padding: 4px 8px;
     }
 }
 
