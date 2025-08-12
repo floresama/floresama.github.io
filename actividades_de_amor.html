@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>🌻 Juego de Amor - Para Mavi 🌻</title>
+    <title>🎮 Juegos de Amor - Para Mavi 🎮</title>
     <link rel="stylesheet" href="/estilos/style.css">
     <link rel="stylesheet" href="/estilos/actividades.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
@@ -22,854 +22,945 @@
             <img src="/imagenes/bellaka.jpeg" alt="" class="logoPrincipal">
             <ul class="menu">
                 <li><a class="nav-item" href="index.html"><strong>Inicio</strong></a></li>
-                <li><a class="nav-item" href="actividades_de_amor.html"><strong>Juego de Amor</strong></a></li>      
+                <li><a class="nav-item" href="actividades_de_amor.html"><strong>Juegos de Amor</strong></a></li>      
                 <li><a class="nav-item" href="collage.html"><strong>Collage</strong></a></li>                  
             </ul>
         </nav>
     </header>
 
-    <!-- Panel de estado del juego -->
-    <div class="game-stats">
-        <div class="stat-item">
-            <span class="stat-label">💖 Vida:</span>
-            <span id="health" class="stat-value">100</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-label">⭐ Nivel:</span>
-            <span id="level" class="stat-value">1</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-label">💰 Oro:</span>
-            <span id="gold" class="stat-value">0</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-label">🎯 Etapa:</span>
-            <span id="stage" class="stat-value">1</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-label">⚔️ Poder:</span>
-            <span id="power" class="stat-value">10</span>
-        </div>
-    </div>
-
-    <!-- Menú principal del juego -->
-    <div id="mainMenu" class="game-container">
-        <div class="game-title">
-            <h1>🌻 Juego de Amor - Aventura Romántica 🌻</h1>
-            <p class="game-subtitle">Ayuda a tu personaje a superar obstáculos y ganar oro para mejorarlo</p>
+    <!-- Menú Principal de Juegos -->
+    <div id="mainMenu" class="games-menu">
+        <div class="menu-title">
+            <h1>🎮 Juegos de Amor para Mavi 🎮</h1>
+            <p class="menu-subtitle">Elige el juego que más te guste para jugar juntos</p>
         </div>
 
-        <!-- Selección de personaje -->
-        <div class="character-selection">
-            <h2>👸 Elige tu Personaje</h2>
-            <div class="character-options">
-                <div class="character-option" data-character="princess">
-                    <div class="character-avatar">👸</div>
-                    <h3>Princesa Mavi</h3>
-                    <p>Poder: 10 | Vida: 100</p>
+        <div class="games-grid">
+            <div class="game-option" onclick="showGame('puzzle')">
+                <div class="game-icon">🧩</div>
+                <h3>🧩 Puzzle Romántico</h3>
+                <p>Arma rompecabezas con nuestras fotos de amor</p>
+                <div class="game-difficulty">
+                    <span class="difficulty-label">Dificultad:</span>
+                    <span class="difficulty-stars">⭐⭐⭐</span>
                 </div>
-                <div class="character-option" data-character="warrior">
-                    <div class="character-avatar">⚔️</div>
-                    <h3>Guerrera del Amor</h3>
-                    <p>Poder: 15 | Vida: 80</p>
-                </div>
-                <div class="character-option" data-character="mage">
-                    <div class="character-avatar">🔮</div>
-                    <h3>Maga Romántica</h3>
-                    <p>Poder: 20 | Vida: 70</p>
+            </div>
+
+            <div class="game-option" onclick="showGame('archery')">
+                <div class="game-icon">🏹</div>
+                <h3>🏹 Tiro al Blanco del Amor</h3>
+                <p>Dispara flechas a corazones y gana puntos</p>
+                <div class="game-difficulty">
+                    <span class="difficulty-label">Dificultad:</span>
+                    <span class="difficulty-stars">⭐⭐</span>
                 </div>
             </div>
         </div>
 
-        <!-- Botones del menú -->
-        <div class="game-buttons">
-            <button id="startGameBtn" class="game-btn primary">🚀 Iniciar Aventura</button>
-            <button id="shopBtn" class="game-btn secondary">🛒 Tienda de Mejoras</button>
-            <button id="statsBtn" class="game-btn secondary">📊 Estadísticas</button>
+        <div class="menu-footer">
+            <p>💕 Cada juego es una nueva aventura de amor 💕</p>
         </div>
     </div>
 
-    <!-- Área de juego -->
-    <div id="gameArea" class="game-area" style="display: none;">
-        <canvas id="gameCanvas" width="800" height="600"></canvas>
-        
-        <!-- Controles del juego -->
-        <div class="game-controls">
-            <div class="control-info">
-                <p>🎮 Controles: Flechas para mover, ESPACIO para saltar, X para atacar</p>
+    <!-- Juego del Puzzle -->
+    <div id="puzzleGame" class="game-container" style="display: none;">
+        <div class="game-header">
+            <button class="back-btn" onclick="showMainMenu()">← Volver al Menú</button>
+            <div class="game-stats">
+                <span>⏱️ Tiempo: <span id="puzzleTime">00:00</span></span>
+                <span>🎯 Movimientos: <span id="puzzleMoves">0</span></span>
+                <span>🏆 Nivel: <span id="puzzleLevel">1</span></span>
             </div>
-            <div class="control-buttons">
-                <button id="pauseBtn" class="control-btn">⏸️ Pausar</button>
-                <button id="menuBtn" class="control-btn">🏠 Menú</button>
+        </div>
+
+        <div class="puzzle-container">
+            <div class="puzzle-info">
+                <h2>🧩 Puzzle Romántico</h2>
+                <p>Arma la imagen de amor seleccionando el nivel de dificultad</p>
+                <div class="difficulty-selector">
+                    <button class="diff-btn active" data-difficulty="3" data-photo="1">3x3 - Foto 1</button>
+                    <button class="diff-btn" data-difficulty="4" data-photo="2">4x4 - Foto 2</button>
+                    <button class="diff-btn" data-difficulty="5" data-photo="3">5x5 - Foto 3</button>
+                </div>
+                <button id="startPuzzleBtn" class="start-btn">🚀 Iniciar Puzzle</button>
+                <button id="debugBtn" class="debug-btn" onclick="if(puzzleGame) puzzleGame.testImages()">🐛 Debug Imágenes</button>
+                <button id="resetBtn" class="reset-btn" onclick="if(puzzleGame) puzzleGame.resetGame()">🔄 Reset Puzzle</button>
+            </div>
+            <div id="puzzleBoard" class="puzzle-board">
+                <div id="puzzleStatus" class="puzzle-status">
+                    <p>Selecciona la dificultad y haz clic en "Iniciar Puzzle" para comenzar</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Tienda de mejoras -->
-    <div id="shop" class="shop-container" style="display: none;">
-        <div class="shop-header">
-            <h2>🛒 Tienda de Mejoras</h2>
-            <p>Gasta tu oro para mejorar tu personaje</p>
-        </div>
-        
-        <div class="shop-items">
-            <div class="shop-item" data-item="health">
-                <div class="item-icon">💖</div>
-                <div class="item-info">
-                    <h3>Poción de Vida</h3>
-                    <p>+20 de vida máxima</p>
-                    <span class="item-price">50 💰</span>
-                </div>
-                <button class="buy-btn">Comprar</button>
-            </div>
-            
-            <div class="shop-item" data-item="power">
-                <div class="item-icon">⚔️</div>
-                <div class="item-info">
-                    <h3>Espada Mejorada</h3>
-                    <p>+5 de poder de ataque</p>
-                    <span class="item-price">100 💰</span>
-                </div>
-                <button class="buy-btn">Comprar</button>
-            </div>
-            
-            <div class="shop-item" data-item="speed">
-                <div class="item-icon">🏃</div>
-                <div class="item-info">
-                    <h3>Botas de Velocidad</h3>
-                    <p>+20% de velocidad de movimiento</p>
-                    <span class="item-price">75 💰</span>
-                </div>
-                <button class="buy-btn">Comprar</button>
-            </div>
-            
-            <div class="shop-item" data-item="jump">
-                <div class="item-icon">🦘</div>
-                <div class="item-info">
-                    <h3>Poción de Salto</h3>
-                    <p>+30% de altura de salto</p>
-                    <span class="item-price">60 💰</span>
-                </div>
-                <button class="buy-btn">Comprar</button>
+    <!-- Juego de Tiro al Blanco -->
+    <div id="archeryGame" class="game-container" style="display: none;">
+        <div class="game-header">
+            <button class="back-btn" onclick="showMainMenu()">← Volver al Menú</button>
+            <div class="game-stats">
+                <span>🎯 Puntos: <span id="archeryScore">0</span></span>
+                <span>🏹 Flechas: <span id="archeryArrows">10</span></span>
+                <span>❤️ Vidas: <span id="archeryLives">3</span></span>
             </div>
         </div>
-        
-        <button id="closeShopBtn" class="close-btn">❌ Cerrar Tienda</button>
-    </div>
 
-    <!-- Estadísticas -->
-    <div id="stats" class="stats-container" style="display: none;">
-        <div class="stats-header">
-            <h2>📊 Estadísticas del Juego</h2>
-        </div>
-        
-        <div class="stats-content">
-            <div class="stat-row">
-                <span class="stat-name">Enemigos Derrotados:</span>
-                <span id="enemiesDefeated" class="stat-value">0</span>
+        <div class="archery-container">
+            <div class="archery-info">
+                <h2>🏹 Tiro al Blanco del Amor</h2>
+                <p>Dispara flechas a los corazones para ganar puntos</p>
+                <button id="startArcheryBtn" class="start-btn">🚀 Iniciar Juego</button>
             </div>
-            <div class="stat-row">
-                <span class="stat-name">Oro Total Ganado:</span>
-                <span id="totalGoldEarned" class="stat-value">0</span>
+            <canvas id="archeryCanvas" width="800" height="600"></canvas>
+            <div class="archery-controls">
+                <p>🎮 Usa el mouse para apuntar y hacer click para disparar</p>
             </div>
-            <div class="stat-row">
-                <span class="stat-name">Etapas Completadas:</span>
-                <span id="stagesCompleted" class="stat-value">0</span>
-            </div>
-            <div class="stat-row">
-                <span class="stat-name">Tiempo de Juego:</span>
-                <span id="playTime" class="stat-value">00:00</span>
-            </div>
-        </div>
-        
-        <button id="closeStatsBtn" class="close-btn">❌ Cerrar</button>
-    </div>
-
-    <!-- Pantalla de Game Over -->
-    <div id="gameOver" class="game-over" style="display: none;">
-        <div class="game-over-content">
-            <h2>💔 Game Over</h2>
-            <p>Tu personaje ha sido derrotado</p>
-            <div class="final-stats">
-                <p>Oro ganado: <span id="finalGold">0</span> 💰</p>
-                <p>Enemigos derrotados: <span id="finalEnemies">0</span> ⚔️</p>
-            </div>
-            <button id="restartBtn" class="game-btn primary">🔄 Reintentar</button>
-            <button id="mainMenuBtn" class="game-btn secondary">🏠 Menú Principal</button>
-        </div>
-    </div>
-
-    <!-- Pantalla de Victoria de Etapa -->
-    <div id="stageComplete" class="stage-complete" style="display: none;">
-        <div class="stage-complete-content">
-            <h2>🎉 ¡Etapa Completada!</h2>
-            <p>Has superado la etapa <span id="completedStage">1</span></p>
-            <div class="rewards">
-                <p>Recompensas:</p>
-                <p>💰 Oro: <span id="stageGold">0</span></p>
-                <p>⭐ Experiencia: <span id="stageExp">0</span></p>
-            </div>
-            <button id="nextStageBtn" class="game-btn primary">➡️ Siguiente Etapa</button>
-            <button id="shopStageBtn" class="game-btn secondary">🛒 Ir a la Tienda</button>
         </div>
     </div>
 
     <script>
-        // Variables del juego
-        let gameState = 'menu'; // menu, playing, paused, gameOver, stageComplete
-        let selectedCharacter = 'princess';
-        let gameStats = {
-            health: 100,
-            maxHealth: 100,
-            level: 1,
-            gold: 0,
-            stage: 1,
-            power: 10,
-            speed: 1,
-            jumpHeight: 1,
-            enemiesDefeated: 0,
-            totalGoldEarned: 0,
-            stagesCompleted: 0,
-            playTime: 0
-        };
+        // Variables globales
+        let currentGame = null;
+        let puzzleGame = null;
+        let archeryGame = null;
 
-        let gameObjects = {
-            player: null,
-            enemies: [],
-            platforms: [],
-            coins: [],
-            projectiles: []
-        };
-
-        let gameCanvas, gameCtx;
-        let gameLoop;
-        let keys = {};
-        let gameTime = 0;
-
-        // Inicialización del juego
-        function initGame() {
-            gameCanvas = document.getElementById('gameCanvas');
-            gameCtx = gameCanvas.getContext('2d');
+        // Mostrar menú principal
+        function showMainMenu() {
+            document.getElementById('mainMenu').style.display = 'block';
+            document.getElementById('puzzleGame').style.display = 'none';
+            document.getElementById('archeryGame').style.display = 'none';
             
-            // Crear partículas flotantes
-            createParticles();
+            if (puzzleGame) puzzleGame.stop();
+            if (archeryGame) archeryGame.stop();
             
-            // Event listeners
-            setupEventListeners();
-            
-            // Mostrar menú principal
-            showMainMenu();
+            currentGame = null;
         }
 
-        // Crear partículas flotantes
+        // Mostrar juego específico
+        function showGame(gameType) {
+            document.getElementById('mainMenu').style.display = 'none';
+            currentGame = gameType;
+
+            if (gameType === 'puzzle') {
+                document.getElementById('puzzleGame').style.display = 'block';
+                if (!puzzleGame) {
+                    puzzleGame = new PuzzleGame();
+                }
+            } else if (gameType === 'archery') {
+                document.getElementById('archeryGame').style.display = 'block';
+                if (!archeryGame) {
+                    archeryGame = new ArcheryGame();
+                }
+            }
+        }
+
+        // Clase del Juego del Puzzle
+        class PuzzleGame {
+            constructor() {
+                this.difficulty = 3;
+                this.currentPhoto = 1;
+                this.pieces = [];
+                this.moves = 0;
+                this.startTime = null;
+                this.timer = null;
+                this.isPlaying = false;
+                this.puzzleImage = null;
+                this.draggedPiece = null;
+                this.isDragging = false;
+                this.dragOffset = { x: 0, y: 0 };
+                
+                console.log('🔧 Constructor de PuzzleGame ejecutado');
+                this.setupEventListeners();
+                
+                // Probar imágenes al crear la instancia
+                setTimeout(() => {
+                    this.testImages();
+                }, 1000);
+            }
+
+            setupEventListeners() {
+                document.getElementById('startPuzzleBtn').addEventListener('click', () => this.startGame());
+                
+                document.querySelectorAll('.diff-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        document.querySelectorAll('.diff-btn').forEach(b => b.classList.remove('active'));
+                        e.target.classList.add('active');
+                        this.difficulty = parseInt(e.target.dataset.difficulty);
+                        this.currentPhoto = parseInt(e.target.dataset.photo);
+                    });
+                });
+            }
+
+            startGame() {
+                // Verificar que no haya un juego en curso
+                if (this.isPlaying) {
+                    return;
+                }
+                
+                this.isPlaying = true;
+                this.moves = 0;
+                this.startTime = Date.now();
+                this.updateStats();
+                
+                // Limpiar el tablero antes de cargar nueva imagen
+                const board = document.getElementById('puzzleBoard');
+                board.innerHTML = '';
+                
+                // Timeout de seguridad para evitar que la página se congele
+                const safetyTimeout = setTimeout(() => {
+                    if (this.isPlaying && this.pieces.length === 0) {
+                        console.error('⚠️ Timeout de seguridad: El juego no se inició en 10 segundos');
+                        this.showStatus('⚠️ Timeout de seguridad. Haz clic en "Reset Puzzle" e intenta de nuevo.');
+                        this.isPlaying = false;
+                    }
+                }, 10000);
+                
+                this.loadPuzzleImage();
+                
+                // Limpiar timeout cuando se complete
+                this.onGameStarted = () => {
+                    clearTimeout(safetyTimeout);
+                };
+            }
+
+            loadPuzzleImage() {
+                const photoMap = {
+                    1: './imagenes/pg1.jpeg',
+                    2: './imagenes/pg2.jpeg',
+                    3: './imagenes/pg3.jpeg',
+                    4: './imagenes/pg4.jpeg',
+                    5: './imagenes/pg5.jpeg'
+                };
+
+                console.log('=== DEBUGGING IMAGEN ===');
+                console.log('Foto seleccionada:', this.currentPhoto);
+                console.log('Ruta de la imagen:', photoMap[this.currentPhoto]);
+                console.log('Ruta completa:', window.location.href);
+
+                // Mostrar mensaje de carga
+                this.showStatus('🔄 Cargando imagen del puzzle...');
+
+                // Intentar con diferentes rutas
+                const pathsToTry = [
+                    photoMap[this.currentPhoto], // Ruta relativa
+                    photoMap[this.currentPhoto].replace('./', '/'), // Ruta desde raíz
+                    window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/') + photoMap[this.currentPhoto].substring(2), // Ruta absoluta
+                    photoMap[this.currentPhoto].replace('./', '../') // Ruta relativa hacia arriba
+                ];
+
+                console.log('Rutas a probar:', pathsToTry);
+
+                this.tryLoadImage(pathsToTry, 0);
+            }
+
+            tryLoadImage(paths, index) {
+                if (index >= paths.length) {
+                    console.error('❌ Todas las rutas fallaron');
+                    this.showStatus('❌ No se pudo cargar la imagen con ninguna ruta');
+                    this.showRetryButton();
+                    return;
+                }
+
+                const path = paths[index];
+                console.log(`Intentando ruta ${index + 1}/${paths.length}: ${path}`);
+
+                this.puzzleImage = new Image();
+                
+                this.puzzleImage.onload = () => {
+                    console.log('✅ Imagen cargada correctamente con ruta:', this.puzzleImage.src);
+                    console.log('Dimensiones de la imagen:', this.puzzleImage.width, 'x', this.puzzleImage.height);
+                    this.showStatus('✅ Imagen cargada correctamente');
+                    setTimeout(() => {
+                        this.createBoard();
+                    }, 500);
+                };
+                
+                this.puzzleImage.onerror = (error) => {
+                    console.error(`❌ Error con ruta ${path}:`, error);
+                    // Intentar siguiente ruta
+                    setTimeout(() => {
+                        this.tryLoadImage(paths, index + 1);
+                    }, 100);
+                };
+                
+                this.puzzleImage.src = path;
+            }
+
+            showRetryButton() {
+                const board = document.getElementById('puzzleBoard');
+                const retryBtn = document.createElement('button');
+                retryBtn.className = 'retry-btn';
+                retryBtn.textContent = '🔄 Reintentar';
+                retryBtn.onclick = () => this.loadPuzzleImage();
+                board.appendChild(retryBtn);
+            }
+
+            resetGame() {
+                console.log('🔄 Reseteando el juego...');
+                
+                // Detener el juego actual
+                this.isPlaying = false;
+                this.stopTimer();
+                
+                // Limpiar el tablero
+                const board = document.getElementById('puzzleBoard');
+                if (board) {
+                    board.innerHTML = '';
+                }
+                
+                // Resetear variables
+                this.pieces = [];
+                this.moves = 0;
+                this.startTime = null;
+                this.draggedPiece = null;
+                this.isDragging = false;
+                
+                // Mostrar mensaje de estado
+                this.showStatus('🔄 Juego reseteado. Selecciona la dificultad y haz clic en "Iniciar Puzzle" para comenzar.');
+                
+                // Actualizar estadísticas
+                this.updateStats();
+                
+                console.log('✅ Juego reseteado correctamente');
+            }
+
+            showStatus(message) {
+                const board = document.getElementById('puzzleBoard');
+                const statusElement = document.getElementById('puzzleStatus');
+                
+                if (statusElement) {
+                    statusElement.innerHTML = `<p>${message}</p>`;
+                } else {
+                    const newStatus = document.createElement('div');
+                    newStatus.id = 'puzzleStatus';
+                    newStatus.className = 'puzzle-status';
+                    newStatus.innerHTML = `<p>${message}</p>`;
+                    board.appendChild(newStatus);
+                }
+            }
+
+            // Método para probar si las imágenes existen
+            testImages() {
+                console.log('=== PROBANDO IMÁGENES ===');
+                console.log('URL actual:', window.location.href);
+                console.log('Directorio actual:', window.location.pathname);
+                
+                const photoMap = {
+                    1: './imagenes/pg1.jpeg',
+                    2: './imagenes/pg2.jpeg',
+                    3: './imagenes/pg3.jpeg',
+                    4: './imagenes/pg4.jpeg',
+                    5: './imagenes/pg5.jpeg'
+                };
+                
+                Object.entries(photoMap).forEach(([key, path]) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        console.log(`✅ Imagen ${key} (${path}) cargada correctamente`);
+                        console.log(`   Dimensiones: ${img.width} x ${img.height}`);
+                        console.log(`   URL completa: ${img.src}`);
+                    };
+                    img.onerror = (error) => {
+                        console.error(`❌ Imagen ${key} (${path}) NO se pudo cargar`);
+                        console.error(`   Error:`, error);
+                        
+                        // Intentar con ruta absoluta
+                        const absolutePath = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/') + path.substring(2);
+                        console.log(`   Intentando con ruta absoluta: ${absolutePath}`);
+                        
+                        const img2 = new Image();
+                        img2.onload = () => {
+                            console.log(`✅ Imagen ${key} cargada con ruta absoluta: ${absolutePath}`);
+                        };
+                        img2.onerror = () => {
+                            console.error(`❌ Imagen ${key} tampoco se pudo cargar con ruta absoluta`);
+                        };
+                        img2.src = absolutePath;
+                    };
+                    img.src = path;
+                });
+                
+                // Mostrar estado actual
+                this.showDebugInfo();
+            }
+
+            showDebugInfo() {
+                console.log('=== ESTADO ACTUAL DEL PUZZLE ===');
+                console.log('Dificultad:', this.difficulty);
+                console.log('Foto actual:', this.currentPhoto);
+                console.log('Jugando:', this.isPlaying);
+                console.log('Imagen del puzzle:', this.puzzleImage);
+                console.log('Piezas creadas:', this.pieces.length);
+                
+                const board = document.getElementById('puzzleBoard');
+                if (board) {
+                    console.log('Tablero encontrado:', board);
+                    console.log('Contenido del tablero:', board.innerHTML);
+                    console.log('Estilos del tablero:', board.style.cssText);
+                } else {
+                    console.error('❌ Tablero no encontrado');
+                }
+            }
+
+            createBoard() {
+                try {
+                    console.log('=== CREANDO TABLERO ===');
+                    console.log('Imagen disponible:', this.puzzleImage);
+                    console.log('Imagen completa:', this.puzzleImage?.complete);
+                    console.log('Imagen naturalWidth:', this.puzzleImage?.naturalWidth);
+                    console.log('Imagen naturalHeight:', this.puzzleImage?.naturalHeight);
+                    
+                    // Verificar que la imagen esté disponible
+                    if (!this.puzzleImage || !this.puzzleImage.complete) {
+                        console.error('❌ La imagen del puzzle no está disponible');
+                        this.showStatus('❌ Error: La imagen no se cargó correctamente');
+                        return;
+                    }
+                    
+                    console.log('✅ Imagen verificada, creando tablero...');
+                    
+                    const board = document.getElementById('puzzleBoard');
+                    if (!board) {
+                        console.error('❌ Tablero no encontrado');
+                        return;
+                    }
+                    board.innerHTML = '';
+                    this.pieces = [];
+                
+                // Limpiar mensaje de estado
+                const statusElement = document.getElementById('puzzleStatus');
+                if (statusElement) {
+                    statusElement.remove();
+                }
+                
+                // Crear el tablero visual
+                board.style.width = '400px';
+                board.style.height = '400px';
+                board.style.position = 'relative';
+                board.style.border = '3px solid rgba(255, 105, 180, 0.5)';
+                board.style.borderRadius = '15px';
+                board.style.overflow = 'hidden';
+                
+                const pieceSize = 400 / this.difficulty;
+                
+                // Crear piezas del puzzle
+                console.log('Creando', this.difficulty * this.difficulty, 'piezas del puzzle...');
+                
+                for (let row = 0; row < this.difficulty; row++) {
+                    for (let col = 0; col < this.difficulty; col++) {
+                        const piece = document.createElement('div');
+                        piece.className = 'puzzle-piece';
+                        piece.style.position = 'absolute';
+                        piece.style.width = pieceSize + 'px';
+                        piece.style.height = pieceSize + 'px';
+                        piece.style.cursor = 'grab';
+                        piece.style.border = '2px solid rgba(255, 105, 180, 0.8)';
+                        piece.style.borderRadius = '8px';
+                        piece.style.overflow = 'hidden';
+                        piece.style.transition = 'box-shadow 0.3s ease';
+                        
+                        // Posición correcta de la pieza
+                        const correctX = col * pieceSize;
+                        const correctY = row * pieceSize;
+                        
+                        // Posición inicial aleatoria usando el método mejorado
+                        const randomPos = this.generateRandomPosition(pieceSize);
+                        piece.style.left = randomPos.x + 'px';
+                        piece.style.top = randomPos.y + 'px';
+                        
+                        // Configurar imagen de fondo
+                        const imageUrl = this.puzzleImage.src;
+                        console.log(`Pieza [${row},${col}]: URL imagen = ${imageUrl}`);
+                        console.log(`Pieza [${row},${col}]: Posición imagen = -${correctX}px -${correctY}px`);
+                        
+                        piece.style.backgroundImage = `url(${imageUrl})`;
+                        piece.style.backgroundSize = `${400}px ${400}px`;
+                        piece.style.backgroundPosition = `-${correctX}px -${correctY}px`;
+                        piece.style.backgroundRepeat = 'no-repeat';
+                        
+                        // Datos de la pieza
+                        piece.dataset.correctX = correctX;
+                        piece.dataset.correctY = correctY;
+                        piece.dataset.currentX = randomPos.x;
+                        piece.dataset.currentY = randomPos.y;
+                        piece.dataset.row = row;
+                        piece.dataset.col = col;
+                        
+                        // Eventos de drag and drop
+                        piece.addEventListener('mousedown', (e) => this.startDrag(e, piece));
+                        
+                        board.appendChild(piece);
+                        this.pieces.push(piece);
+                        
+                        console.log(`Pieza [${row},${col}] creada y agregada al tablero`);
+                    }
+                }
+                
+                console.log('✅ Todas las piezas creadas. Total:', this.pieces.length);
+                
+                // Eventos globales del mouse
+                document.addEventListener('mousemove', (e) => this.drag(e));
+                document.addEventListener('mouseup', (e) => this.endDrag(e));
+                
+                                    this.startTimer();
+                    
+                    // Llamar callback de inicio exitoso
+                    if (this.onGameStarted) {
+                        this.onGameStarted();
+                    }
+                    
+                } catch (error) {
+                    console.error('❌ Error al crear el tablero:', error);
+                    this.showStatus('❌ Error al crear el tablero: ' + error.message);
+                    this.isPlaying = false;
+                }
+            }
+
+            isPositionTooClose(x, y, pieceSize) {
+                // Verificar que no esté muy cerca de otras posiciones ya ocupadas
+                for (let piece of this.pieces) {
+                    const pieceX = parseFloat(piece.style.left);
+                    const pieceY = parseFloat(piece.style.top);
+                    const distance = Math.sqrt(Math.pow(x - pieceX, 2) + Math.pow(y - pieceY, 2));
+                    if (distance < pieceSize * 0.8) {
+                        return true; // Muy cerca
+                    }
+                }
+                return false;
+            }
+
+            // Método mejorado para generar posiciones aleatorias sin bucle infinito
+            generateRandomPosition(pieceSize, maxAttempts = 100) {
+                for (let attempt = 0; attempt < maxAttempts; attempt++) {
+                    const randomX = Math.random() * (400 - pieceSize);
+                    const randomY = Math.random() * (400 - pieceSize);
+                    
+                    if (!this.isPositionTooClose(randomX, randomY, pieceSize)) {
+                        return { x: randomX, y: randomY };
+                    }
+                }
+                
+                // Si no se encuentra una posición después de muchos intentos, usar una posición aleatoria
+                console.warn('No se pudo encontrar posición óptima, usando posición aleatoria');
+                return {
+                    x: Math.random() * (400 - pieceSize),
+                    y: Math.random() * (400 - pieceSize)
+                };
+            }
+
+            startDrag(e, piece) {
+                if (!this.isPlaying) return;
+                
+                this.isDragging = true;
+                this.draggedPiece = piece;
+                piece.style.cursor = 'grabbing';
+                piece.style.zIndex = '1000';
+                piece.style.boxShadow = '0 8px 25px rgba(255, 20, 147, 0.4)';
+                
+                const rect = piece.getBoundingClientRect();
+                this.dragOffset.x = e.clientX - rect.left;
+                this.dragOffset.y = e.clientY - rect.top;
+                
+                e.preventDefault();
+            }
+
+            drag(e) {
+                if (!this.isDragging || !this.draggedPiece) return;
+                
+                const board = document.getElementById('puzzleBoard');
+                const boardRect = board.getBoundingClientRect();
+                
+                let newX = e.clientX - boardRect.left - this.dragOffset.x;
+                let newY = e.clientY - boardRect.top - this.dragOffset.y;
+                
+                // Limitar al área del tablero
+                const pieceSize = 400 / this.difficulty;
+                newX = Math.max(0, Math.min(newX, 400 - pieceSize));
+                newY = Math.max(0, Math.min(newY, 400 - pieceSize));
+                
+                this.draggedPiece.style.left = newX + 'px';
+                this.draggedPiece.style.top = newY + 'px';
+                
+                // Actualizar datos de posición
+                this.draggedPiece.dataset.currentX = newX;
+                this.draggedPiece.dataset.currentY = newY;
+            }
+
+            endDrag(e) {
+                if (!this.isDragging || !this.draggedPiece) return;
+                
+                this.isDragging = false;
+                this.draggedPiece.style.cursor = 'grab';
+                this.draggedPiece.style.zIndex = 'auto';
+                this.draggedPiece.style.boxShadow = '0 2px 10px rgba(255, 20, 147, 0.3)';
+                
+                // Verificar si la pieza está en su posición correcta
+                this.checkPiecePosition(this.draggedPiece);
+                
+                this.draggedPiece = null;
+                
+                // Verificar si el puzzle está completo
+                if (this.checkWin()) {
+                    this.gameWon();
+                }
+            }
+
+            checkPiecePosition(piece) {
+                const correctX = parseInt(piece.dataset.correctX);
+                const correctY = parseInt(piece.dataset.correctY);
+                const currentX = parseInt(piece.dataset.currentX);
+                const currentY = parseInt(piece.dataset.currentY);
+                
+                const pieceSize = 400 / this.difficulty;
+                const tolerance = pieceSize * 0.1; // Solo 10% de tolerancia - debe estar MUY cerca
+                
+                if (Math.abs(currentX - correctX) < tolerance && Math.abs(currentY - correctY) < tolerance) {
+                    // Pieza en posición correcta - LOCK IT!
+                    piece.style.left = correctX + 'px';
+                    piece.style.top = correctY + 'px';
+                    piece.dataset.currentX = correctX;
+                    piece.dataset.currentY = correctY;
+                    piece.style.border = '3px solid #4CAF50';
+                    piece.style.boxShadow = '0 6px 20px rgba(76, 175, 80, 0.6)';
+                    piece.style.cursor = 'default';
+                    piece.style.pointerEvents = 'none'; // Completamente inmóvil
+                    piece.style.transform = 'scale(1.02)'; // Efecto visual
+                    piece.style.transition = 'all 0.5s ease';
+                    
+                    // Agregar efecto de "locked"
+                    piece.innerHTML = '<div style="position: absolute; top: 5px; right: 5px; color: #4CAF50; font-size: 16px; font-weight: bold;">🔒</div>';
+                    
+                    // Remover todos los eventos de drag
+                    piece.removeEventListener('mousedown', (e) => this.startDrag(e, piece));
+                    
+                    this.moves++;
+                    this.updateStats();
+                    
+                    // Efecto de celebración
+                    this.celebratePiece(piece);
+                }
+            }
+
+            celebratePiece(piece) {
+                // Efecto de brillo
+                piece.style.filter = 'brightness(1.1)';
+                setTimeout(() => {
+                    piece.style.filter = 'brightness(1)';
+                }, 300);
+                
+                // Agregar clase para animación
+                piece.classList.add('piece-locked');
+            }
+
+            checkWin() {
+                return this.pieces.every(piece => {
+                    const correctX = parseInt(piece.dataset.correctX);
+                    const correctY = parseInt(piece.dataset.correctY);
+                    const currentX = parseInt(piece.dataset.currentX);
+                    const currentY = parseInt(piece.dataset.currentY);
+                    
+                    return Math.abs(currentX - correctX) < 5 && Math.abs(currentY - correctY) < 5;
+                });
+            }
+
+            gameWon() {
+                this.isPlaying = false;
+                this.stopTimer();
+                
+                const timeElapsed = Math.floor((Date.now() - this.startTime) / 1000);
+                const minutes = Math.floor(timeElapsed / 60);
+                const seconds = timeElapsed % 60;
+                
+                setTimeout(() => {
+                    alert(`🎉 ¡Puzzle completado!\n⏱️ Tiempo: ${minutes}:${seconds.toString().padStart(2, '0')}\n🎯 Movimientos: ${this.moves}`);
+                }, 100);
+            }
+
+            startTimer() {
+                this.timer = setInterval(() => {
+                    if (this.startTime) {
+                        const timeElapsed = Math.floor((Date.now() - this.startTime) / 1000);
+                        const minutes = Math.floor(timeElapsed / 60);
+                        const seconds = timeElapsed % 60;
+                        document.getElementById('puzzleTime').textContent = 
+                            `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                    }
+                }, 1000);
+            }
+
+            stopTimer() {
+                if (this.timer) {
+                    clearInterval(this.timer);
+                    this.timer = null;
+                }
+            }
+
+            updateStats() {
+                document.getElementById('puzzleMoves').textContent = this.moves;
+                document.getElementById('puzzleLevel').textContent = this.difficulty;
+            }
+
+            stop() {
+                this.isPlaying = false;
+                this.stopTimer();
+                
+                // Remover eventos globales
+                document.removeEventListener('mousemove', this.drag);
+                document.removeEventListener('mouseup', this.endDrag);
+            }
+        }
+
+        // Clase del Juego de Tiro al Blanco
+        class ArcheryGame {
+            constructor() {
+                this.canvas = null;
+                this.ctx = null;
+                this.score = 0;
+                this.arrows = 10;
+                this.lives = 3;
+                this.isPlaying = false;
+                this.targets = [];
+                this.arrows = [];
+                this.lastTime = 0;
+                this.animationId = null;
+                
+                this.setupEventListeners();
+            }
+
+            setupEventListeners() {
+                document.getElementById('startArcheryBtn').addEventListener('click', () => this.startGame());
+            }
+
+            startGame() {
+                this.canvas = document.getElementById('archeryCanvas');
+                this.ctx = this.canvas.getContext('2d');
+                
+                this.score = 0;
+                this.arrows = 10;
+                this.lives = 3;
+                this.isPlaying = true;
+                this.targets = [];
+                this.arrows = [];
+                
+                this.updateStats();
+                this.createTargets();
+                this.setupCanvasEvents();
+                this.gameLoop();
+            }
+
+            createTargets() {
+                this.targets = [];
+                for (let i = 0; i < 5; i++) {
+                    this.targets.push({
+                        x: Math.random() * (this.canvas.width - 100) + 50,
+                        y: Math.random() * (this.canvas.height - 100) + 50,
+                        size: 30 + Math.random() * 20,
+                        type: Math.random() > 0.7 ? 'heart' : 'circle',
+                        points: Math.random() > 0.7 ? 20 : 10
+                    });
+                }
+            }
+
+            setupCanvasEvents() {
+                this.canvas.addEventListener('click', (e) => this.shootArrow(e));
+            }
+
+            shootArrow(e) {
+                if (!this.isPlaying || this.arrows <= 0) return;
+                
+                const rect = this.canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                this.arrows--;
+                this.updateStats();
+                
+                // Crear flecha
+                this.arrows.push({
+                    x: this.canvas.width / 2,
+                    y: this.canvas.height - 50,
+                    targetX: x,
+                    targetY: y,
+                    speed: 15
+                });
+                
+                if (this.arrows <= 0) {
+                    setTimeout(() => this.endGame(), 2000);
+                }
+            }
+
+            gameLoop(currentTime = 0) {
+                if (!this.isPlaying) return;
+                
+                const deltaTime = currentTime - this.lastTime;
+                this.lastTime = currentTime;
+                
+                this.update(deltaTime);
+                this.draw();
+                
+                this.animationId = requestAnimationFrame((time) => this.gameLoop(time));
+            }
+
+            update(deltaTime) {
+                // Actualizar flechas
+                for (let i = this.arrows.length - 1; i >= 0; i--) {
+                    const arrow = this.arrows[i];
+                    const dx = arrow.targetX - arrow.x;
+                    const dy = arrow.targetY - arrow.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < arrow.speed) {
+                        // Flecha llegó al objetivo
+                        this.checkHit(arrow.targetX, arrow.targetY);
+                        this.arrows.splice(i, 1);
+                    } else {
+                        arrow.x += (dx / distance) * arrow.speed;
+                        arrow.y += (dy / distance) * arrow.speed;
+                    }
+                }
+                
+                // Mover objetivos
+                this.targets.forEach(target => {
+                    target.y += 0.5;
+                    if (target.y > this.canvas.height + 50) {
+                        target.y = -50;
+                        target.x = Math.random() * (this.canvas.width - 100) + 50;
+                    }
+                });
+            }
+
+            checkHit(x, y) {
+                for (let i = this.targets.length - 1; i >= 0; i--) {
+                    const target = this.targets[i];
+                    const distance = Math.sqrt(
+                        Math.pow(x - target.x, 2) + Math.pow(y - target.y, 2)
+                    );
+                    
+                    if (distance < target.size) {
+                        this.score += target.points;
+                        this.targets.splice(i, 1);
+                        this.updateStats();
+                        
+                        // Crear nuevo objetivo
+                        if (this.targets.length < 5) {
+                            this.targets.push({
+                                x: Math.random() * (this.canvas.width - 100) + 50,
+                                y: -50,
+                                size: 30 + Math.random() * 20,
+                                type: Math.random() > 0.7 ? 'heart' : 'circle',
+                                points: Math.random() > 0.7 ? 20 : 10
+                            });
+                        }
+                        break;
+                    }
+                }
+            }
+
+            draw() {
+                // Limpiar canvas
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                
+                // Dibujar fondo
+                this.ctx.fillStyle = '#ffe6f2';
+                this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+                
+                // Dibujar objetivos
+                this.targets.forEach(target => {
+                    if (target.type === 'heart') {
+                        this.drawHeart(target.x, target.y, target.size, '#ff1493');
+                    } else {
+                        this.ctx.fillStyle = '#ff69b4';
+                        this.ctx.beginPath();
+                        this.ctx.arc(target.x, target.y, target.size, 0, Math.PI * 2);
+                        this.ctx.fill();
+                    }
+                });
+                
+                // Dibujar flechas
+                this.ctx.strokeStyle = '#8b4513';
+                this.ctx.lineWidth = 3;
+                this.arrows.forEach(arrow => {
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(arrow.x, arrow.y);
+                    this.ctx.lineTo(arrow.x - 10, arrow.y - 5);
+                    this.ctx.stroke();
+                    
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(arrow.x, arrow.y);
+                    this.ctx.lineTo(arrow.x + 10, arrow.y - 5);
+                    this.ctx.stroke();
+                });
+                
+                // Dibujar arco
+                this.ctx.strokeStyle = '#8b4513';
+                this.ctx.lineWidth = 5;
+                this.ctx.beginPath();
+                this.ctx.arc(this.canvas.width / 2, this.canvas.height - 30, 20, 0, Math.PI);
+                this.ctx.stroke();
+            }
+
+            drawHeart(x, y, size, color) {
+                this.ctx.fillStyle = color;
+                this.ctx.beginPath();
+                this.ctx.moveTo(x, y + size * 0.3);
+                this.ctx.bezierCurveTo(x, y, x - size, y, x - size, y + size * 0.3);
+                this.ctx.bezierCurveTo(x - size, y + size * 0.6, x, y + size * 0.8, x, y + size * 0.8);
+                this.ctx.bezierCurveTo(x, y + size * 0.8, x + size, y + size * 0.6, x + size, y + size * 0.3);
+                this.ctx.bezierCurveTo(x + size, y, x, y, x, y + size * 0.3);
+                this.ctx.fill();
+            }
+
+            updateStats() {
+                document.getElementById('archeryScore').textContent = this.score;
+                document.getElementById('archeryArrows').textContent = this.arrows;
+                document.getElementById('archeryLives').textContent = this.lives;
+            }
+
+            endGame() {
+                this.isPlaying = false;
+                if (this.animationId) {
+                    cancelAnimationFrame(this.animationId);
+                }
+                
+                setTimeout(() => {
+                    alert(`🎯 ¡Juego terminado!\n🏆 Puntuación: ${this.score} puntos\n🏹 Flechas restantes: ${this.arrows}`);
+                }, 100);
+            }
+
+            stop() {
+                this.isPlaying = false;
+                if (this.animationId) {
+                    cancelAnimationFrame(this.animationId);
+                }
+            }
+        }
+
+        // Inicializar partículas
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = 15;
+            const particleCount = 50;
             
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 particle.style.left = Math.random() * 100 + '%';
                 particle.style.top = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 6 + 's';
-                particle.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                particle.style.animationDelay = Math.random() * 3 + 's';
+                particle.style.animationDuration = (Math.random() * 2 + 2) + 's';
                 particlesContainer.appendChild(particle);
             }
         }
 
-        // Configurar event listeners
-        function setupEventListeners() {
-            // Selección de personaje
-            document.querySelectorAll('.character-option').forEach(option => {
-                option.addEventListener('click', () => selectCharacter(option.dataset.character));
-            });
-
-            // Botones del menú
-            document.getElementById('startGameBtn').addEventListener('click', startGame);
-            document.getElementById('shopBtn').addEventListener('click', showShop);
-            document.getElementById('statsBtn').addEventListener('click', showStats);
-
-            // Botones del juego
-            document.getElementById('pauseBtn').addEventListener('click', togglePause);
-            document.getElementById('menuBtn').addEventListener('click', returnToMenu);
-
-            // Botones de la tienda
-            document.getElementById('closeShopBtn').addEventListener('click', hideShop);
-            document.querySelectorAll('.buy-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => buyItem(e.target.closest('.shop-item').dataset.item));
-            });
-
-            // Botones de estadísticas
-            document.getElementById('closeStatsBtn').addEventListener('click', hideStats);
-
-            // Botones de game over
-            document.getElementById('restartBtn').addEventListener('click', restartGame);
-            document.getElementById('mainMenuBtn').addEventListener('click', returnToMenu);
-
-            // Botones de completar etapa
-            document.getElementById('nextStageBtn').addEventListener('click', nextStage);
-            document.getElementById('shopStageBtn').addEventListener('click', () => {
-                hideStageComplete();
-                showShop();
-            });
-
-            // Controles del teclado
-            document.addEventListener('keydown', (e) => {
-                keys[e.code] = true;
-                if (e.code === 'Space') e.preventDefault();
-            });
-
-            document.addEventListener('keyup', (e) => {
-                keys[e.code] = false;
-            });
-        }
-
-        // Seleccionar personaje
-        function selectCharacter(character) {
-            selectedCharacter = character;
-            
-            // Actualizar estadísticas según el personaje
-            switch(character) {
-                case 'princess':
-                    gameStats.power = 10;
-                    gameStats.maxHealth = 100;
-                    gameStats.speed = 1;
-                    gameStats.jumpHeight = 1;
-                    break;
-                case 'warrior':
-                    gameStats.power = 15;
-                    gameStats.maxHealth = 80;
-                    gameStats.speed = 1.2;
-                    gameStats.jumpHeight = 0.9;
-                    break;
-                case 'mage':
-                    gameStats.power = 20;
-                    gameStats.maxHealth = 70;
-                    gameStats.speed = 0.8;
-                    gameStats.jumpHeight = 1.1;
-                    break;
-            }
-            
-            gameStats.health = gameStats.maxHealth;
-            
-            // Actualizar UI
-            updateStats();
-            
-            // Resaltar selección
-            document.querySelectorAll('.character-option').forEach(opt => opt.classList.remove('selected'));
-            document.querySelector(`[data-character="${character}"]`).classList.add('selected');
-        }
-
-        // Mostrar menú principal
-        function showMainMenu() {
-            gameState = 'menu';
-            document.getElementById('mainMenu').style.display = 'block';
-            document.getElementById('gameArea').style.display = 'none';
-            document.getElementById('shop').style.display = 'none';
-            document.getElementById('stats').style.display = 'none';
-            document.getElementById('gameOver').style.display = 'none';
-            document.getElementById('stageComplete').style.display = 'none';
-        }
-
-        // Iniciar juego
-        function startGame() {
-            gameState = 'playing';
-            document.getElementById('mainMenu').style.display = 'none';
-            document.getElementById('gameArea').style.display = 'block';
-            
-            // Inicializar nivel
-            initStage();
-            
-            // Iniciar loop del juego
-            gameLoop = setInterval(updateGame, 1000 / 60); // 60 FPS
-        }
-
-        // Inicializar etapa
-        function initStage() {
-            // Crear jugador
-            gameObjects.player = {
-                x: 100,
-                y: 500,
-                width: 40,
-                height: 60,
-                vx: 0,
-                vy: 0,
-                onGround: false,
-                health: gameStats.health,
-                maxHealth: gameStats.maxHealth,
-                power: gameStats.power,
-                speed: gameStats.speed,
-                jumpHeight: gameStats.jumpHeight
-            };
-
-            // Crear plataformas
-            gameObjects.platforms = [
-                { x: 0, y: 560, width: 800, height: 40 }, // Suelo
-                { x: 200, y: 450, width: 100, height: 20 },
-                { x: 400, y: 350, width: 100, height: 20 },
-                { x: 600, y: 250, width: 100, height: 20 },
-                { x: 100, y: 200, width: 100, height: 20 }
-            ];
-
-            // Crear enemigos
-            gameObjects.enemies = [
-                { x: 300, y: 520, width: 30, height: 30, vx: -1, health: 20, type: 'basic' },
-                { x: 500, y: 320, width: 30, height: 30, vx: 1, health: 25, type: 'flying' },
-                { x: 150, y: 150, width: 30, height: 30, vx: -1, health: 30, type: 'strong' }
-            ];
-
-            // Crear monedas
-            gameObjects.coins = [
-                { x: 250, y: 400, width: 20, height: 20, collected: false },
-                { x: 450, y: 300, width: 20, height: 20, collected: false },
-                { x: 650, y: 200, width: 20, height: 20, collected: false },
-                { x: 150, y: 150, width: 20, height: 20, collected: false }
-            ];
-
-            // Limpiar proyectiles
-            gameObjects.projectiles = [];
-        }
-
-        // Actualizar juego
-        function updateGame() {
-            if (gameState !== 'playing') return;
-
-            gameTime += 1/60;
-            gameStats.playTime = Math.floor(gameTime);
-
-            updatePlayer();
-            updateEnemies();
-            updateProjectiles();
-            checkCollisions();
-            drawGame();
-
-            // Verificar si el jugador llegó al final de la etapa
-            if (gameObjects.player.x > 750) {
-                completeStage();
-            }
-        }
-
-        // Actualizar jugador
-        function updatePlayer() {
-            const player = gameObjects.player;
-
-            // Movimiento horizontal
-            if (keys['ArrowLeft']) {
-                player.vx = -3 * player.speed;
-            } else if (keys['ArrowRight']) {
-                player.vx = 3 * player.speed;
-            } else {
-                player.vx *= 0.8; // Fricción
-            }
-
-            // Salto
-            if (keys['Space'] && player.onGround) {
-                player.vy = -12 * player.jumpHeight;
-                player.onGround = false;
-            }
-
-            // Gravedad
-            player.vy += 0.5;
-
-            // Aplicar velocidad
-            player.x += player.vx;
-            player.y += player.vy;
-
-            // Ataque
-            if (keys['KeyX']) {
-                attack();
-            }
-
-            // Límites del canvas
-            if (player.x < 0) player.x = 0;
-            if (player.x > 760) player.x = 760;
-            if (player.y > 560) {
-                player.y = 560;
-                player.vy = 0;
-                player.onGround = true;
-            }
-
-            // Colisión con plataformas
-            player.onGround = false;
-            gameObjects.platforms.forEach(platform => {
-                if (player.x < platform.x + platform.width &&
-                    player.x + player.width > platform.x &&
-                    player.y < platform.y + platform.height &&
-                    player.y + player.height > platform.y) {
-                    
-                    if (player.vy > 0 && player.y < platform.y) {
-                        player.y = platform.y - player.height;
-                        player.vy = 0;
-                        player.onGround = true;
-                    }
-                }
-            });
-        }
-
-        // Ataque del jugador
-        function attack() {
-            const player = gameObjects.player;
-            const projectile = {
-                x: player.x + player.width / 2,
-                y: player.y + player.height / 2,
-                vx: player.vx > 0 ? 8 : -8,
-                width: 10,
-                height: 10,
-                power: player.power
-            };
-            gameObjects.projectiles.push(projectile);
-        }
-
-        // Actualizar enemigos
-        function updateEnemies() {
-            gameObjects.enemies.forEach(enemy => {
-                // Movimiento básico
-                enemy.x += enemy.vx;
-
-                // Cambiar dirección en bordes
-                if (enemy.x <= 0 || enemy.x >= 770) {
-                    enemy.vx *= -1;
-                }
-
-                // Enemigo volador
-                if (enemy.type === 'flying') {
-                    enemy.y += Math.sin(gameTime * 2) * 0.5;
-                }
-            });
-        }
-
-        // Actualizar proyectiles
-        function updateProjectiles() {
-            gameObjects.projectiles = gameObjects.projectiles.filter(projectile => {
-                projectile.x += projectile.vx;
-                return projectile.x > 0 && projectile.x < 800;
-            });
-        }
-
-        // Verificar colisiones
-        function checkCollisions() {
-            const player = gameObjects.player;
-
-            // Colisión con enemigos
-            gameObjects.enemies.forEach((enemy, index) => {
-                if (player.x < enemy.x + enemy.width &&
-                    player.x + player.width > enemy.x &&
-                    player.y < enemy.y + enemy.height &&
-                    player.y + player.height > enemy.y) {
-                    
-                    // Jugador recibe daño
-                    player.health -= 10;
-                    gameStats.health = player.health;
-                    updateStats();
-
-                    if (player.health <= 0) {
-                        gameOver();
-                    }
-                }
-            });
-
-            // Colisión de proyectiles con enemigos
-            gameObjects.projectiles.forEach((projectile, pIndex) => {
-                gameObjects.enemies.forEach((enemy, eIndex) => {
-                    if (projectile.x < enemy.x + enemy.width &&
-                        projectile.x + projectile.width > enemy.x &&
-                        projectile.y < enemy.y + enemy.height &&
-                        projectile.y + projectile.height > enemy.y) {
-                        
-                        // Enemigo recibe daño
-                        enemy.health -= projectile.power;
-                        
-                        // Remover proyectil
-                        gameObjects.projectiles.splice(pIndex, 1);
-                        
-                        // Verificar si el enemigo muere
-                        if (enemy.health <= 0) {
-                            gameObjects.enemies.splice(eIndex, 1);
-                            gameStats.enemiesDefeated++;
-                            gameStats.gold += 10;
-                            gameStats.totalGoldEarned += 10;
-                            updateStats();
-                        }
-                    }
-                });
-            });
-
-            // Colisión con monedas
-            gameObjects.coins.forEach((coin, index) => {
-                if (!coin.collected &&
-                    player.x < coin.x + coin.width &&
-                    player.x + player.width > coin.x &&
-                    player.y < coin.y + coin.height &&
-                    player.y + player.height > coin.y) {
-                    
-                    coin.collected = true;
-                    gameStats.gold += 5;
-                    gameStats.totalGoldEarned += 5;
-                    updateStats();
-                }
-            });
-        }
-
-        // Dibujar juego
-        function drawGame() {
-            const ctx = gameCtx;
-            
-            // Limpiar canvas
-            ctx.clearRect(0, 0, 800, 600);
-            
-            // Fondo degradado
-            const gradient = ctx.createLinearGradient(0, 0, 0, 600);
-            gradient.addColorStop(0, '#FF69B4');
-            gradient.addColorStop(1, '#FF1493');
-            ctx.fillStyle = gradient;
-            ctx.fillRect(0, 0, 800, 600);
-
-            // Dibujar plataformas
-            ctx.fillStyle = '#8B4513';
-            gameObjects.platforms.forEach(platform => {
-                ctx.fillRect(platform.x, platform.y, platform.width, platform.height);
-            });
-
-            // Dibujar jugador
-            ctx.fillStyle = '#FFD700';
-            ctx.fillRect(gameObjects.player.x, gameObjects.player.y, gameObjects.player.width, gameObjects.player.height);
-            
-            // Ojos del jugador
-            ctx.fillStyle = '#000';
-            ctx.fillRect(gameObjects.player.x + 8, gameObjects.player.y + 15, 5, 5);
-            ctx.fillRect(gameObjects.player.x + 27, gameObjects.player.y + 15, 5, 5);
-
-            // Dibujar enemigos
-            gameObjects.enemies.forEach(enemy => {
-                if (enemy.type === 'basic') {
-                    ctx.fillStyle = '#FF0000';
-                } else if (enemy.type === 'flying') {
-                    ctx.fillStyle = '#800080';
-                } else {
-                    ctx.fillStyle = '#8B0000';
-                }
-                ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);
-            });
-
-            // Dibujar monedas
-            ctx.fillStyle = '#FFD700';
-            gameObjects.coins.forEach(coin => {
-                if (!coin.collected) {
-                    ctx.beginPath();
-                    ctx.arc(coin.x + coin.width/2, coin.y + coin.height/2, coin.width/2, 0, 2 * Math.PI);
-                    ctx.fill();
-                }
-            });
-
-            // Dibujar proyectiles
-            ctx.fillStyle = '#FFFF00';
-            gameObjects.projectiles.forEach(projectile => {
-                ctx.fillRect(projectile.x, projectile.y, projectile.width, projectile.height);
-            });
-
-            // Dibujar meta
-            ctx.fillStyle = '#00FF00';
-            ctx.fillRect(750, 200, 50, 100);
-            ctx.fillStyle = '#000';
-            ctx.font = '20px Arial';
-            ctx.fillText('🏁', 760, 250);
-        }
-
-        // Completar etapa
-        function completeStage() {
-            gameState = 'stageComplete';
-            clearInterval(gameLoop);
-            
-            gameStats.stagesCompleted++;
-            gameStats.stage++;
-            gameStats.level++;
-            
-            // Recompensas de la etapa
-            const stageGold = 50 + gameStats.stage * 10;
-            const stageExp = 100 + gameStats.stage * 20;
-            
-            gameStats.gold += stageGold;
-            gameStats.totalGoldEarned += stageGold;
-            
-            // Actualizar UI
-            document.getElementById('completedStage').textContent = gameStats.stage - 1;
-            document.getElementById('stageGold').textContent = stageGold;
-            document.getElementById('stageExp').textContent = stageExp;
-            
-            document.getElementById('stageComplete').style.display = 'block';
-            updateStats();
-        }
-
-        // Siguiente etapa
-        function nextStage() {
-            hideStageComplete();
-            startGame();
-        }
-
-        // Ocultar pantalla de completar etapa
-        function hideStageComplete() {
-            document.getElementById('stageComplete').style.display = 'none';
-        }
-
-        // Game Over
-        function gameOver() {
-            gameState = 'gameOver';
-            clearInterval(gameLoop);
-            
-            document.getElementById('finalGold').textContent = gameStats.gold;
-            document.getElementById('finalEnemies').textContent = gameStats.enemiesDefeated;
-            document.getElementById('gameOver').style.display = 'block';
-        }
-
-        // Reiniciar juego
-        function restartGame() {
-            // Resetear estadísticas del juego
-            gameStats.health = gameStats.maxHealth;
-            gameStats.gold = 0;
-            gameStats.stage = 1;
-            gameStats.enemiesDefeated = 0;
-            
-            updateStats();
-            document.getElementById('gameOver').style.display = 'none';
-            startGame();
-        }
-
-        // Mostrar tienda
-        function showShop() {
-            document.getElementById('shop').style.display = 'block';
-            document.getElementById('mainMenu').style.display = 'none';
-        }
-
-        // Ocultar tienda
-        function hideShop() {
-            document.getElementById('shop').style.display = 'none';
-            document.getElementById('mainMenu').style.display = 'block';
-        }
-
-        // Mostrar estadísticas
-        function showStats() {
-            document.getElementById('stats').style.display = 'block';
-            document.getElementById('mainMenu').style.display = 'none';
-            
-            // Actualizar estadísticas
-            document.getElementById('enemiesDefeated').textContent = gameStats.enemiesDefeated;
-            document.getElementById('totalGoldEarned').textContent = gameStats.totalGoldEarned;
-            document.getElementById('stagesCompleted').textContent = gameStats.stagesCompleted;
-            
-            const minutes = Math.floor(gameStats.playTime / 60);
-            const seconds = gameStats.playTime % 60;
-            document.getElementById('playTime').textContent = 
-                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        }
-
-        // Ocultar estadísticas
-        function hideStats() {
-            document.getElementById('stats').style.display = 'none';
-            document.getElementById('mainMenu').style.display = 'block';
-        }
-
-        // Comprar item
-        function buyItem(itemType) {
-            let cost = 0;
-            let canAfford = false;
-            
-            switch(itemType) {
-                case 'health':
-                    cost = 50;
-                    if (gameStats.gold >= cost) {
-                        gameStats.maxHealth += 20;
-                        gameStats.health = gameStats.maxHealth;
-                        canAfford = true;
-                    }
-                    break;
-                case 'power':
-                    cost = 100;
-                    if (gameStats.gold >= cost) {
-                        gameStats.power += 5;
-                        canAfford = true;
-                    }
-                    break;
-                case 'speed':
-                    cost = 75;
-                    if (gameStats.gold >= cost) {
-                        gameStats.speed += 0.2;
-                        canAfford = true;
-                    }
-                    break;
-                case 'jump':
-                    cost = 60;
-                    if (gameStats.gold >= cost) {
-                        gameStats.jumpHeight += 0.3;
-                        canAfford = true;
-                    }
-                    break;
-            }
-            
-            if (canAfford) {
-                gameStats.gold -= cost;
-                updateStats();
-                
-                // Efecto visual de compra exitosa
-                const buyBtn = event.target;
-                buyBtn.textContent = '✅ Comprado!';
-                buyBtn.style.backgroundColor = '#4CAF50';
-                setTimeout(() => {
-                    buyBtn.textContent = 'Comprar';
-                    buyBtn.style.backgroundColor = '';
-                }, 1000);
-            } else {
-                // Efecto visual de no poder comprar
-                const buyBtn = event.target;
-                buyBtn.textContent = '❌ Sin Oro!';
-                buyBtn.style.backgroundColor = '#f44336';
-                setTimeout(() => {
-                    buyBtn.textContent = 'Comprar';
-                    buyBtn.style.backgroundColor = '';
-                }, 1000);
-            }
-        }
-
-        // Actualizar estadísticas en la UI
-        function updateStats() {
-            document.getElementById('health').textContent = gameStats.health;
-            document.getElementById('level').textContent = gameStats.level;
-            document.getElementById('gold').textContent = gameStats.gold;
-            document.getElementById('stage').textContent = gameStats.stage;
-            document.getElementById('power').textContent = gameStats.power;
-        }
-
-        // Pausar/Reanudar juego
-        function togglePause() {
-            if (gameState === 'playing') {
-                gameState = 'paused';
-                clearInterval(gameLoop);
-                document.getElementById('pauseBtn').textContent = '▶️ Reanudar';
-            } else if (gameState === 'paused') {
-                gameState = 'playing';
-                gameLoop = setInterval(updateGame, 1000 / 60);
-                document.getElementById('pauseBtn').textContent = '⏸️ Pausar';
-            }
-        }
-
-        // Volver al menú
-        function returnToMenu() {
-            if (gameLoop) {
-                clearInterval(gameLoop);
-            }
-            showMainMenu();
-        }
-
         // Inicializar cuando cargue la página
         window.onload = function() {
-            initGame();
-            selectCharacter('princess'); // Personaje por defecto
+            createParticles();
         };
     </script>
 
     <!-- ---------FOOTER-------- -->
     <section id="contactos">
         <footer class="fin">
-            <p>Joaquin Augusto Flores - Para Mavi con todo mi amor</p>
+            <p>Para Mavi con todo mi amor</p>
             <p>Te amo más que ayer pero menos que mañana 💕</p>
         </footer>  
     </section>
